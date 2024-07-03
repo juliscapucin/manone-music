@@ -1,0 +1,294 @@
+/*
+Theme Name: ManoneMusic
+Theme URI: https://manomusic.com
+Author: Juli Scapucin
+Author URI: https://juliscapucin.com
+Description: A custom theme for ManoneMusic.
+Requires at least: 6.4
+Tested up to: 6.5
+Requires PHP: 8.0
+Version: 1.0
+Text Domain: manonemusic
+*/
+
+@import url("https://use.typekit.net/cbg5juo.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/**
+ * This injects custom `@font-face` rules.
+ */
+@import "./assets/fonts.css";
+
+:root {
+	--font-primary: "PPSupplyMono", monospace;
+	--font-secondary: "ff-real-text-pro", sans-serif;
+	--color-primary: 3 30 27;
+	--color-primary-rgb: 3, 30, 27;
+	--color-secondary: 182 209 194;
+	--color-secondary-rgb: 182, 209, 194;
+	--color-focus: 154, 152, 152;
+	--header-height: 8rem;
+	--margin-mobile: 1rem;
+	--margin-desktop: 2rem;
+	--padding-mobile: 1rem;
+	--padding-desktop: 2rem;
+	--container-width-mobile: calc(100vw - var(--padding-mobile) * 2);
+	--container-width-desktop: 100vw;
+	--container-height-mobile: calc(
+		100svh - var(--padding-mobile) - var(--header-height)
+	);
+	--container-height-desktop: calc(
+		100svh - var(--padding-mobile) - var(--header-height)
+	);
+	--panels-container-width-desktop: calc(100vw * 5);
+	--container-height-desktop: calc(100vh);
+}
+
+@layer base {
+	:root[data-theme="dark"] {
+		--color-primary: 3 30 27;
+		--color-primary-rgb: 3, 30, 27;
+		--color-secondary: 182 209 194;
+		--color-secondary-rgb: 182, 209, 194;
+		--color-focus: 154, 152, 152;
+	}
+	:root[data-theme="green"] {
+		--color-primary: 34 50 26;
+		--color-primary-rgb: 34, 50, 26;
+		--color-secondary: 141 129 143;
+		--color-secondary-rgb: 141, 129, 143;
+		--color-focus: 154, 152, 152;
+	}
+	:root[data-theme="red"] {
+		--color-primary: 53 30 42;
+		--color-primary-rgb: 53, 30, 42;
+		--color-secondary: 239 69 38;
+		--color-secondary-rgb: 239, 69, 38;
+		--color-focus: 154, 152, 152;
+	}
+	:root[data-theme="purple"] {
+		--color-primary: 141 129 143;
+		--color-primary-rgb: 141, 129, 143;
+		--color-secondary: 34 50 26;
+		--color-secondary-rgb: 34, 50, 26;
+		--color-focus: 154, 152, 152;
+	}
+
+	body {
+		@apply font-primary bg-primary transition-colors duration-200 !important;
+		-webkit-font-smoothing: antialiased;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply text-secondary font-primary uppercase font-bold;
+	}
+
+	a {
+		@apply font-primary text-secondary transition-all duration-200;
+	}
+
+	header a {
+		@apply relative overflow-x-clip before:content-[''] before:block before:w-full before:h-[1px] before:bg-secondary before:absolute before:bottom-0 before:-translate-x-full before:transition-all before:duration-200;
+	}
+
+	header a.active {
+		@apply before:translate-x-0;
+	}
+
+	li,
+	p {
+		@apply text-secondary font-primary text-bodySmall lg:text-bodyMedium;
+	}
+
+	p {
+		@apply max-w-prose;
+	}
+
+	figcaption,
+	time {
+		@apply font-primary uppercase font-extralight text-secondary;
+	}
+
+	cite {
+		@apply text-secondary font-primary not-italic;
+	}
+}
+
+* {
+	/* box-sizing: border-box; */
+	padding: 0;
+	margin: 0;
+}
+
+/* --------------- */
+/* FRONTEND STYLES */
+/* --------------- */
+
+.site-body {
+	@apply font-primary bg-primary md:mt-0;
+	-webkit-font-smoothing: antialiased;
+}
+
+/* ------------------------------------- */
+/* Remove WP styles that break the layout */
+
+.home .wp-site-blocks {
+	@apply overflow-x-clip;
+}
+
+.wp-block-post-content {
+	@apply m-0;
+}
+
+/* ------------------------------------- */
+
+/* Scrollbars */
+.home::-webkit-scrollbar,
+.cards-stack::-webkit-scrollbar,
+.cards-home::-webkit-scrollbar {
+	width: 4px;
+	height: 4px;
+}
+.home::-webkit-scrollbar-track,
+.cards-stack::-webkit-scrollbar-track,
+.cards-home::-webkit-scrollbar-track {
+	background-color: rgba(var(--color-secondary-rgb), 0.1);
+	margin-block: 1px;
+}
+.home::-webkit-scrollbar-thumb,
+.cards-stack::-webkit-scrollbar-thumb,
+.cards-home::-webkit-scrollbar-thumb {
+	background-color: rgba(var(--color-secondary-rgb), 1);
+	width: 1rem;
+	height: 1rem;
+	border: none;
+}
+
+/* ------------- */
+/* EDITOR STYLES */
+/* ------------- */
+
+/* Containers */
+.container,
+.is-root-container,
+.generic-content {
+	@apply relative w-full max-w-wide pt-0 !important;
+}
+
+.is-root-container h1 {
+	@apply mt-0 block;
+}
+
+/* .block-editor-iframe__body {
+	overflow-y: hidden;
+} */
+
+/* Style title in editor */
+.editor-editor-canvas__post-title-wrapper {
+	@apply absolute ml-8;
+}
+
+.editor-editor-canvas__post-title-wrapper h1 {
+	@apply text-bodyLarge tracking-normal;
+}
+
+.wp-element-button {
+	@apply uppercase bg-secondary text-primary font-primary rounded-none;
+}
+
+/* Link */
+.wp-block-read-more {
+	@apply uppercase text-secondary font-primary rounded-none;
+}
+
+.is-style-outline .wp-element-button {
+	@apply text-secondary font-primary rounded-none;
+}
+
+/* ------------------------ */
+/* CUSTOM CORE BLOCK STYLES */
+/* ------------------------ */
+
+/* HORIZONTAL SCROLL (outer panel) */
+.is-style-horizontal-scroll {
+	@apply relative lg:h-[--container-height-desktop] w-screen m-0;
+}
+
+/* HORIZONTAL PANEL (inner panel) */
+.is-style-group-full {
+	@apply lg:h-[--container-height-desktop] w-fit lg:flex lg:flex-nowrap;
+}
+
+/* HOME SECTIONS */
+/* panel */
+.is-style-group-section {
+	@apply relative h-[--container-height-desktop] min-w-screen w-fit px-8 md:px-16 lg:pr-96 lg:last:pr-0;
+}
+
+/* inner panel */
+.is-style-max-width {
+	@apply relative w-screen max-w-wide overflow-clip;
+}
+
+/* PAGE CONTAINER */
+.is-style-group-page-container {
+	@apply w-full min-h-[--container-height-desktop] max-w-wide py-16 px-8 my-0 mx-auto;
+}
+
+/* IMAGE */
+.is-style-image-absolute {
+	@apply absolute top-0 left-0 w-full max-w-wide h-screen flex justify-center items-center -z-10;
+}
+
+.is-style-featured-image-square-mr {
+	@apply mr-8;
+}
+
+/* BUTTON */
+.is-style-button-manonemusic a,
+.is-style-button-manonemusic > * {
+	@apply uppercase bg-secondary text-primary font-primary rounded-none;
+}
+
+/* IMAGE */
+.is-style-image-square {
+	@apply w-full aspect-square object-cover overflow-clip;
+}
+
+/* HEADING */
+
+.is-style-logo-huge {
+	@apply block w-full mt-32 sm:mt-64 md:mt-32 md:-ml-2 lg:-ml-2 xl:-ml-3 mb-4 md:mb-0 leading-tighter md:leading-none;
+	font-size: clamp(4.5rem, 11vw, 13rem);
+}
+
+.is-style-heading-display {
+	@apply block text-displaySmall md:text-displayMedium lg:text-displayLarge tracking-[-5px] leading-none mt-32 mb-8;
+}
+
+.is-style-heading-headline {
+	@apply block text-headlineSmall md:text-headlineMedium lg:text-headlineLarge tracking-[-2px] leading-none mt-16 mb-8;
+}
+
+/* PARAGRAPH */
+.is-style-indent-left {
+	@apply ml-16 lg:ml-32 mt-4;
+}
+.is-style-indent-right {
+	@apply mr-16 lg:mr-32 mt-4;
+}
+
+/* ----------------- */
+
+.sticky-heading {
+	position: fixed;
+	left: 0;
+}
