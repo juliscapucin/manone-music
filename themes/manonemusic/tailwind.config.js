@@ -29,7 +29,7 @@ module.exports = {
 		fontSize: {
 			displayLarge: "147px",
 			displayMedium: "103px",
-			displaySmall: "72px",
+			displaySmall: "64px",
 			headlineLarge: "81px",
 			headlineMedium: "72px",
 			headlineSmall: "64px",

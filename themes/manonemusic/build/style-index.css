@@ -521,37 +521,6 @@ a{
   font-family: var(--font-primary);
   --tw-text-opacity: 1;
   color: rgb(var(--color-secondary) / var(--tw-text-opacity));
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 200ms;
-}
-
-header a{
-  position: relative;
-  overflow-x: clip;
-}
-
-header a::before{
-  position: absolute;
-  bottom: 0px;
-  display: block;
-  height: 1px;
-  width: 100%;
-  --tw-translate-x: -100%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-  --tw-bg-opacity: 1;
-  background-color: rgb(var(--color-secondary) / var(--tw-bg-opacity));
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 200ms;
-  --tw-content: '';
-  content: var(--tw-content);
-}
-
-header a.active::before{
-  content: var(--tw-content);
-  --tw-translate-x: 0px;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 li,
@@ -1011,16 +980,8 @@ cite{
        columns: 2;
 }
 
-.flex-col{
-  flex-direction: column;
-}
-
 .flex-wrap{
   flex-wrap: wrap;
-}
-
-.items-end{
-  align-items: flex-end;
 }
 
 .items-center{
@@ -1053,6 +1014,10 @@ cite{
 
 .gap-8{
   gap: 2rem;
+}
+
+.gap-16{
+  gap: 4rem;
 }
 
 .space-y-16 > :not([hidden]) ~ :not([hidden]){
@@ -1150,6 +1115,11 @@ cite{
 .px-1{
   padding-left: 0.25rem;
   padding-right: 0.25rem;
+}
+
+.px-4{
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .px-8{
@@ -1315,6 +1285,10 @@ cite{
   /* box-sizing: border-box; */
   padding: 0;
   margin: 0;
+}
+
+a {
+  text-decoration: none !important;
 }
 
 /* --------------- */
@@ -1488,15 +1462,15 @@ cite{
   width: -moz-fit-content;
   width: fit-content;
   min-width: 100vw;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   padding-top: var(--header-height);
 }
 
 @media (min-width: 768px){
   .is-style-group-section{
     padding-left: 4rem;
-    padding-right: 4rem;
+    padding-right: 16rem;
   }
 }
 
@@ -1615,14 +1589,14 @@ cite{
 }
 
 .is-style-logo-huge {
-  font-size: clamp(4.5rem, 11vw, 13rem);
+  font-size: clamp(4.5rem, 11vw, 12.3rem);
 }
 
 .is-style-heading-display{
   margin-top: 4rem;
   margin-bottom: 2rem;
   display: block;
-  font-size: 72px;
+  font-size: 64px;
   line-height: 1;
   letter-spacing: -5px;
 }
@@ -1691,6 +1665,37 @@ cite{
   left: 0;
 }
 
+.underlined-link {
+  position: relative;
+  display: inline-block;
+  overflow-x: clip;
+  text-decoration: none;
+  width: -moz-fit-content;
+  width: fit-content;
+  color: var(--color-secondary);
+}
+
+.underlined-link::after {
+  content: "";
+  position: absolute;
+  z-index: 50;
+  bottom: 2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: currentColor;
+  transition: transform 0.3s;
+  transform: translateX(-105%);
+}
+
+.underlined-link:hover::after {
+  transform: translateX(0%);
+}
+
+.active.underlined-link::after {
+  transform: translateX(0%);
+}
+
 @media (min-width: 768px){
   .md\:absolute{
     position: absolute;
@@ -1700,20 +1705,16 @@ cite{
     margin-top: 0px;
   }
 
+  .md\:flex{
+    display: flex;
+  }
+
   .md\:h-\[--container-height-desktop\]{
     height: var(--container-height-desktop);
   }
 
   .md\:w-96{
     width: 24rem;
-  }
-
-  .md\:flex-row{
-    flex-direction: row;
-  }
-
-  .md\:gap-4{
-    gap: 1rem;
   }
 
   .md\:px-16{
@@ -1729,10 +1730,6 @@ cite{
 @media (min-width: 1024px){
   .lg\:gap-32{
     gap: 8rem;
-  }
-
-  .lg\:gap-8{
-    gap: 2rem;
   }
 
   .lg\:overflow-visible{
