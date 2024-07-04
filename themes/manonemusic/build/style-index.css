@@ -1016,10 +1016,6 @@ cite{
   gap: 2rem;
 }
 
-.gap-16{
-  gap: 4rem;
-}
-
 .space-y-16 > :not([hidden]) ~ :not([hidden]){
   --tw-space-y-reverse: 0;
   margin-top: calc(4rem * calc(1 - var(--tw-space-y-reverse)));
@@ -1703,10 +1699,6 @@ a {
 
   .md\:mt-0{
     margin-top: 0px;
-  }
-
-  .md\:flex{
-    display: flex;
   }
 
   .md\:h-\[--container-height-desktop\]{
