@@ -6,7 +6,11 @@ node_modules
 /package-lock.json
 
 # Plugins
-/plugins
+/plugins/advanced-custom-fields/
+/plugins/gutenberg/
+/plugins/manual-image-crop/
+/plugins/regenerate-thumbnails/
+/plugins/node_modules/
 
 # Uploads directory
 /uploads/

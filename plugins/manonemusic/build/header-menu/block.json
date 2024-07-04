@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "manonemusic/header-menu",
+  "version": "0.1.0",
+  "title": "Header Menu",
+  "category": "widgets",
+  "icon": "smiley",
+  "description": "Header Menu block for Manone Music",
+  "example": {},
+  "supports": {
+    "html": false,
+    "interactivity": true,
+    "spacing": {
+      "padding": true,
+      "margin": true
+    }
+  },
+  "attributes": {},
+  "textdomain": "header-menu",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js"
+}

@@ -2,10 +2,10 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/track/edit.js":
-/*!***************************!*\
-  !*** ./src/track/edit.js ***!
-  \***************************/
+/***/ "./src/header-menu/edit.js":
+/*!*********************************!*\
+  !*** ./src/header-menu/edit.js ***!
+  \*********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -20,7 +20,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./style.css */ "./src/track/style.css");
+/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./style.css */ "./src/header-menu/style.css");
 
 
 
@@ -143,19 +143,19 @@ function Edit({
 
 /***/ }),
 
-/***/ "./src/track/index.js":
-/*!****************************!*\
-  !*** ./src/track/index.js ***!
-  \****************************/
+/***/ "./src/header-menu/index.js":
+/*!**********************************!*\
+  !*** ./src/header-menu/index.js ***!
+  \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./edit */ "./src/track/edit.js");
-/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./save */ "./src/track/save.js");
-/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./block.json */ "./src/track/block.json");
-/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./style.css */ "./src/track/style.css");
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./edit */ "./src/header-menu/edit.js");
+/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./save */ "./src/header-menu/save.js");
+/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./block.json */ "./src/header-menu/block.json");
+/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./style.css */ "./src/header-menu/style.css");
 
 
 
@@ -182,10 +182,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/track/save.js":
-/*!***************************!*\
-  !*** ./src/track/save.js ***!
-  \***************************/
+/***/ "./src/header-menu/save.js":
+/*!*********************************!*\
+  !*** ./src/header-menu/save.js ***!
+  \*********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -207,10 +207,10 @@ function Save() {
 
 /***/ }),
 
-/***/ "./src/track/style.css":
-/*!*****************************!*\
-  !*** ./src/track/style.css ***!
-  \*****************************/
+/***/ "./src/header-menu/style.css":
+/*!***********************************!*\
+  !*** ./src/header-menu/style.css ***!
+  \***********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -269,13 +269,13 @@ module.exports = window["wp"]["data"];
 
 /***/ }),
 
-/***/ "./src/track/block.json":
-/*!******************************!*\
-  !*** ./src/track/block.json ***!
-  \******************************/
+/***/ "./src/header-menu/block.json":
+/*!************************************!*\
+  !*** ./src/header-menu/block.json ***!
+  \************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"manonemusic/track","version":"0.1.0","title":"Track","category":"widgets","icon":"smiley","description":"Track block for Manone Music","example":{},"supports":{"html":false,"interactivity":true,"spacing":{"padding":true,"margin":true}},"attributes":{"tracklist":{"type":"array","default":[{"name":"Track 1","url":"url","id":"857650483"},{"name":"Track 2","url":"url","id":"857650483"}]}},"textdomain":"track","editorScript":"file:./index.js","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"manonemusic/header-menu","version":"0.1.0","title":"Header Menu","category":"widgets","icon":"smiley","description":"Header Menu block for Manone Music","example":{},"supports":{"html":false,"interactivity":true,"spacing":{"padding":true,"margin":true}},"attributes":{},"textdomain":"header-menu","editorScript":"file:./index.js","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ })
 
@@ -389,8 +389,8 @@ module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/tru
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
-/******/ 			"track/index": 0,
-/******/ 			"track/style-index": 0
+/******/ 			"header-menu/index": 0,
+/******/ 			"header-menu/style-index": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -440,7 +440,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/tru
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["track/style-index"], () => (__webpack_require__("./src/track/index.js")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["header-menu/style-index"], () => (__webpack_require__("./src/header-menu/index.js")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
