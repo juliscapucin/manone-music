@@ -6,7 +6,18 @@ node_modules
 /package-lock.json
 
 # Plugins
-/plugins
+/plugins/advanced-custom-fields/
+/plugins/gutenberg/
+/plugins/manual-image-crop/
+/plugins/regenerate-thumbnails/
+/plugins/node_modules/
+
+# Themes
+/themes/twentytwentytwo/
+/themes/twentytwentythree/
+/themes/twentytwentyfour/
+/themes/fictional-university-theme/
+/themes/juli2024-wp-tailwind/
 
 # Uploads directory
 /uploads/
