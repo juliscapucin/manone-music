@@ -88,7 +88,7 @@ Text Domain: manonemusic
 	h4,
 	h5,
 	h6 {
-		@apply text-secondary font-primary uppercase font-bold;
+		@apply text-secondary font-primary uppercase font-bold leading-tighter;
 	}
 
 	a {
