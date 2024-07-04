@@ -41,7 +41,7 @@ Text Domain: manonemusic
 		100svh - var(--padding-mobile) - var(--header-height)
 	);
 	--container-height-desktop: calc(
-		100svh - var(--padding-mobile) - var(--header-height)
+		100svh - var(--padding-desktop) - var(--header-height)
 	);
 	--panels-container-width-desktop: calc(100vw * 5);
 	--container-height-desktop: calc(100vh);
@@ -230,7 +230,7 @@ Text Domain: manonemusic
 /* HOME SECTIONS */
 /* panel */
 .is-style-group-section {
-	@apply relative h-[--container-height-desktop] min-w-screen w-fit px-8 md:px-16 lg:pr-96 lg:last:pr-0;
+	@apply relative h-[--container-height-desktop] pt-[--header-height] min-w-screen w-fit px-8 md:px-16 lg:pr-96 lg:last:pr-0;
 }
 
 /* inner panel */
@@ -271,7 +271,7 @@ Text Domain: manonemusic
 }
 
 .is-style-heading-display {
-	@apply block text-displaySmall md:text-displayMedium lg:text-displayLarge tracking-[-5px] leading-none mt-32 mb-8;
+	@apply block text-displaySmall md:text-displayMedium lg:text-displayLarge tracking-[-5px] leading-none mt-16 mb-8;
 }
 
 .is-style-heading-headline {

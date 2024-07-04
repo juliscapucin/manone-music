@@ -779,6 +779,10 @@ cite{
   bottom: 0px;
 }
 
+.bottom-8{
+  bottom: 2rem;
+}
+
 .left-0{
   left: 0px;
 }
@@ -854,6 +858,10 @@ cite{
 
 .mt-32{
   margin-top: 8rem;
+}
+
+.mt-4{
+  margin-top: 1rem;
 }
 
 .mt-8{
@@ -937,6 +945,11 @@ cite{
   height: 1.5rem;
 }
 
+.h-fit{
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
 .h-full{
   height: 100%;
 }
@@ -1012,6 +1025,10 @@ cite{
 
 .items-center{
   align-items: center;
+}
+
+.justify-end{
+  justify-content: flex-end;
 }
 
 .justify-center{
@@ -1157,6 +1174,10 @@ cite{
   padding-right: 6rem;
 }
 
+.pr-40{
+  padding-right: 10rem;
+}
+
 .pr-8{
   padding-right: 2rem;
 }
@@ -1194,7 +1215,11 @@ cite{
 }
 
 .text-titleLarge{
-  font-size: 22px;
+  font-size: 20px;
+}
+
+.text-titleSmall{
+  font-size: 16px;
 }
 
 .font-bold{
@@ -1280,7 +1305,7 @@ cite{
 		100svh - var(--padding-mobile) - var(--header-height)
 	);
   --container-height-desktop: calc(
-		100svh - var(--padding-mobile) - var(--header-height)
+		100svh - var(--padding-desktop) - var(--header-height)
 	);
   --panels-container-width-desktop: calc(100vw * 5);
   --container-height-desktop: calc(100vh);
@@ -1465,6 +1490,7 @@ cite{
   min-width: 100vw;
   padding-left: 2rem;
   padding-right: 2rem;
+  padding-top: var(--header-height);
 }
 
 @media (min-width: 768px){
@@ -1593,7 +1619,7 @@ cite{
 }
 
 .is-style-heading-display{
-  margin-top: 8rem;
+  margin-top: 4rem;
   margin-bottom: 2rem;
   display: block;
   font-size: 72px;
@@ -1716,11 +1742,19 @@ cite{
   .lg\:text-labelLarge{
     font-size: 14px;
   }
+
+  .lg\:text-titleMedium{
+    font-size: 18px;
+  }
 }
 
 @media (min-width: 1280px){
   .xl\:px-32{
     padding-left: 8rem;
     padding-right: 8rem;
+  }
+
+  .xl\:text-titleLarge{
+    font-size: 20px;
   }
 }
