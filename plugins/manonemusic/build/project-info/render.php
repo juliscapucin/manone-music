@@ -37,7 +37,7 @@ function format_release_date($date_string)
 
 	if (isset($release_date) && !empty($release_date)) {
 		$formatted_date = format_release_date($release_date);
-		echo '<p>Released ' . esc_html($formatted_date) . '</p>';
+		echo '<p>Release date ' . esc_html($formatted_date) . '</p>';
 	}
 
 	if (isset($attributes['projectDescription']) && !empty($attributes['projectDescription'])) {
