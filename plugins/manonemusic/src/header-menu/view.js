@@ -4,7 +4,8 @@ class HeaderMenu {
 	constructor() {
 		this.menuOverlay;
 		this.burgerButton;
-		this.closeButton;
+		this.buttonLines;
+		this.buttonLinesContainer;
 		this.linkList;
 		this.isOpen = false;
 		this.toggleMenu = this.toggleMenu.bind(this);
@@ -16,18 +17,21 @@ class HeaderMenu {
 		this.menuOverlay = document.querySelector("[js-hook-menu-overlay]");
 		this.burgerButton = document.querySelector("[js-hook-burger-button]");
 		this.linkList = document.querySelector("[js-hook-link-list]");
-		this.closeButton = document.querySelector("[js-hook-close-button]");
+		this.buttonLinesContainer = document.querySelector(
+			"[js-hook-button-lines-container]",
+		);
+		this.buttonLines = this.burgerButton.querySelectorAll(
+			"[js-hook-button-line]",
+		);
 
 		gsap.set([this.menuOverlay, this.linkList], { xPercent: 100 });
-		this.closeButton.classList.add("hidden");
+		gsap.set(this.buttonLines[1], { y: "8px" });
 
 		this.addEventListeners();
 	}
 
 	addEventListeners() {
 		this.burgerButton.addEventListener("click", this.toggleMenu);
-
-		this.closeButton.addEventListener("click", this.toggleMenu);
 
 		window.addEventListener("keydown", (e) => {
 			if (e.key === "Escape" && this.isOpen) {
@@ -39,6 +43,8 @@ class HeaderMenu {
 	toggleMenu() {
 		this.isOpen = !this.isOpen;
 		const menuOffset = this.isOpen ? 0 : 100;
+		const lineRotation = this.isOpen ? 45 : 0;
+		const lineOffset = this.isOpen ? "0px" : "8px";
 		const linkOffset = this.isOpen
 			? { xPercent: 0, delay: 0.2 }
 			: { xPercent: 100 };
@@ -51,13 +57,22 @@ class HeaderMenu {
 			ease: "power2.out",
 		});
 
-		this.closeButton.classList.toggle("hidden");
-		this.burgerButton.classList.toggle("hidden");
+		gsap.to(this.buttonLines[0], {
+			duration: 0.4,
+			rotate: lineRotation,
+			transformOrigin: "center center",
+		});
+
+		gsap.to(this.buttonLines[1], {
+			duration: 0.4,
+			rotate: -lineRotation,
+			y: lineOffset,
+			transformOrigin: "center center",
+		});
 	}
 
 	removeEventListeners() {
 		this.burgerButton.removeEventListener("click", this.toggleMenu);
-		this.closeButton.removeEventListener("click", this.toggleMenu);
 	}
 
 	load() {

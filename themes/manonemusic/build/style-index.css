@@ -788,6 +788,14 @@ cite{
   top: 4rem;
 }
 
+.right-4{
+  right: 1rem;
+}
+
+.top-2{
+  top: 0.5rem;
+}
+
 .isolate{
   isolation: isolate;
 }
@@ -947,6 +955,14 @@ cite{
   height: 100%;
 }
 
+.h-8{
+  height: 2rem;
+}
+
+.h-\[1px\]{
+  height: 1px;
+}
+
 .w-16{
   width: 4rem;
 }
@@ -965,6 +981,10 @@ cite{
 
 .w-full{
   width: 100%;
+}
+
+.w-12{
+  width: 3rem;
 }
 
 .min-w-40{
@@ -991,6 +1011,20 @@ cite{
   flex-grow: 1;
 }
 
+.origin-center{
+  transform-origin: center;
+}
+
+.rotate-45{
+  --tw-rotate: 45deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.-rotate-45{
+  --tw-rotate: -45deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 .transform{
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
@@ -1014,6 +1048,10 @@ cite{
 
 .items-start{
   align-items: flex-start;
+}
+
+.items-end{
+  align-items: flex-end;
 }
 
 .items-center{
@@ -1132,6 +1170,10 @@ cite{
 .bg-secondary{
   --tw-bg-opacity: 1;
   background-color: rgb(var(--color-secondary) / var(--tw-bg-opacity));
+}
+
+.bg-faded-5{
+  background-color: rgba(var(--color-secondary-rgb), 0.05);
 }
 
 .object-contain{
@@ -1726,6 +1768,10 @@ a {
 @media (min-width: 768px){
   .md\:absolute{
     position: absolute;
+  }
+
+  .md\:right-16{
+    right: 4rem;
   }
 
   .md\:mt-0{

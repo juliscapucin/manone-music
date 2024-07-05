@@ -16,9 +16,13 @@ $links = $attributes['linkList'];
 if (count($links) > 0) {
    echo '
    <nav>
-      <div class="lg:hidden fixed z-menuButtons">
-         <button class="absolute" js-hook-burger-button>Menu</button>
-         <button class="absolute" js-hook-close-button>Close</button>
+      <div class="lg:hidden fixed top-2 right-0 z-menuButtons">
+         <button class="absolute h-16 w-16 right-4 md:right-16" js-hook-burger-button>
+            <div class="relative w-full h-4" js-hook-button-lines-container>
+               <div class="w-12 h-[1px] bg-secondary" js-hook-button-line></div>
+               <div class="w-12 h-[1px] bg-secondary" js-hook-button-line></div>
+            </div>
+         </button>
       </div>
       <ul class="fixed inset-0 lg:relative flex flex-col justify-center items-center lg:flex-row lg:justify-end gap-8 z-30 pointer-events-none" js-hook-link-list>';
    foreach ($links as $link) {
