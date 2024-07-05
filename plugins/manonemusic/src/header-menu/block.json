@@ -16,7 +16,17 @@
 			"margin": true
 		}
 	},
-	"attributes": {"links":{ "type": "array", "default": [] }},
+	"attributes": {
+		"linkList": {
+			"type": "array",
+			"default": [
+				{
+					"label": "Link 1",
+					"slug": "/slug"
+				}
+			]
+		}
+	},
 	"textdomain": "header-menu",
 	"editorScript": "file:./index.js",
 	"render": "file:./render.php",

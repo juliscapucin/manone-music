@@ -43,10 +43,94 @@ function Edit({
     }
   });
   const {
-    links
+    linkList
   } = attributes;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-    ...blockProps
+  const updateLinkLabel = (index, newLabel) => {
+    const newLinkList = [...linkList];
+    newLinkList[index] = {
+      ...newLinkList[index],
+      label: newLabel
+    };
+    setAttributes({
+      linkList: newLinkList
+    });
+  };
+  const updateLinkSlug = (index, newSlug) => {
+    const newLinkList = [...linkList];
+    newLinkList[index] = {
+      ...newLinkList[index],
+      slug: newSlug
+    };
+    setAttributes({
+      linkList: newLinkList
+    });
+  };
+  const removeLink = index => {
+    const newLinkList = [...linkList];
+    newLinkList.splice(index, 1);
+    setAttributes({
+      linkList: newLinkList
+    });
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    ...blockProps,
+    children: [linkList.map((link, index) => {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        style: index > 0 ? {
+          marginTop: "1rem"
+        } : {},
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Flex, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.FlexBlock, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+              label: "Link label:",
+              autoFocus: link.label == undefined,
+              value: link.label,
+              onChange: newLabel => updateLinkLabel(index, newLabel),
+              style: {
+                color: "var(--color-secondary)",
+                backgroundColor: "var(--color-primary)"
+              }
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.FlexBlock, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+              label: "Link slug:",
+              value: link.slug,
+              onChange: newSlug => updateLinkSlug(index, newSlug),
+              style: {
+                color: "var(--color-secondary)",
+                backgroundColor: "var(--color-primary)"
+              }
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.FlexItem, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+              onClick: () => removeLink(index),
+              variant: "link",
+              style: {
+                color: "var(--color-secondary)"
+              },
+              children: "Remove Link"
+            })
+          })]
+        })
+      }, `linkInput-${index}`);
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+      onClick: () => {
+        setAttributes({
+          linkList: linkList.concat({
+            title: undefined,
+            url: ""
+          })
+        });
+      },
+      variant: "primary",
+      icon: "plus-alt",
+      style: {
+        margin: "1.5rem auto 0 auto",
+        display: "flex",
+        padding: "0 5rem"
+      },
+      children: "Add New Link"
+    })]
   });
 }
 
@@ -124,7 +208,7 @@ module.exports = window["wp"]["data"];
   \************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"manonemusic/header-menu","version":"0.1.0","title":"Header Menu","category":"widgets","icon":"smiley","description":"Header Menu block for Manone Music","example":{},"supports":{"html":false,"interactivity":true,"spacing":{"padding":true,"margin":true}},"attributes":{"links":{"type":"array","default":[]}},"textdomain":"header-menu","editorScript":"file:./index.js","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"manonemusic/header-menu","version":"0.1.0","title":"Header Menu","category":"widgets","icon":"smiley","description":"Header Menu block for Manone Music","example":{},"supports":{"html":false,"interactivity":true,"spacing":{"padding":true,"margin":true}},"attributes":{"linkList":{"type":"array","default":[{"label":"Link 1","slug":"/slug"}]}},"textdomain":"header-menu","editorScript":"file:./index.js","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ })
 

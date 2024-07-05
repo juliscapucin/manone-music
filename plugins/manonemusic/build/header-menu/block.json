@@ -17,9 +17,14 @@
     }
   },
   "attributes": {
-    "links": {
+    "linkList": {
       "type": "array",
-      "default": []
+      "default": [
+        {
+          "label": "Link 1",
+          "slug": "/slug"
+        }
+      ]
     }
   },
   "textdomain": "header-menu",

@@ -10,8 +10,13 @@
  */
 
 // print_r($block);
-?>
 
-<div class="mt-16 pr-16">
-   <?php
-   $links = $attributes['links'];
+$links = $attributes['linkList'];
+
+if (count($links) > 0) {
+   echo '<nav><ul class="flex gap-8">';
+   foreach ($links as $link) {
+      echo '<li class=""><a href="' . $link['slug'] . '" class="underlined-link uppercase">' . $link['label'] . '</a></li>';
+   }
+   echo '</ul></nav>';
+}
