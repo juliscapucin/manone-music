@@ -118,6 +118,11 @@ class HorizontalScroll {
 				e.preventDefault()
 				if (this.root.hasAttribute("data-menu-open")) {
 					this.root.removeAttribute("data-menu-open")
+					const target = e.target.getAttribute("href").replace("/", "")
+					gsap.to(window, {
+						scrollTo: `#${target}`,
+						duration: 0.3,
+					})
 				}
 			})
 		})
