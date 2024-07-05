@@ -16,7 +16,12 @@
       "margin": true
     }
   },
-  "attributes": {},
+  "attributes": {
+    "links": {
+      "type": "array",
+      "default": []
+    }
+  },
   "textdomain": "header-menu",
   "editorScript": "file:./index.js",
   "render": "file:./render.php",

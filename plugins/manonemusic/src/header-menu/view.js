@@ -20,18 +20,18 @@
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-metadata/#view-script
  */
 
-document.addEventListener("DOMContentLoaded", () => {
-	const headerMenu = document.querySelector(".header-menu");
-	const headerMenuButton = document.querySelector(".header-menu-button");
-	const headerMenuCloseButton = document.querySelector(
-		".header-menu-close-button",
-	);
+// document.addEventListener("DOMContentLoaded", () => {
+// 	const headerMenu = document.querySelector(".header-menu");
+// 	const headerMenuButton = document.querySelector(".header-menu-button");
+// 	const headerMenuCloseButton = document.querySelector(
+// 		".header-menu-close-button",
+// 	);
 
-	headerMenuButton.addEventListener("click", () => {
-		headerMenu.classList.add("header-menu--open");
-	});
+// 	headerMenuButton.addEventListener("click", () => {
+// 		headerMenu.classList.add("header-menu--open");
+// 	});
 
-	headerMenuCloseButton.addEventListener("click", () => {
-		headerMenu.classList.remove("header-menu--open");
-	});
-});
+// 	headerMenuCloseButton.addEventListener("click", () => {
+// 		headerMenu.classList.remove("header-menu--open");
+// 	});
+// });

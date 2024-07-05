@@ -34,7 +34,6 @@ __webpack_require__.r(__webpack_exports__);
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 
-
 function Edit({
   attributes,
   setAttributes
