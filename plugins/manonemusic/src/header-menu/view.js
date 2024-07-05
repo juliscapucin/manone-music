@@ -77,7 +77,7 @@ class HeaderMenu {
 
 	load() {
 		document.addEventListener("DOMContentLoaded", () => {
-			this.init();
+			window.innerWidth < 1024 && this.init();
 		});
 	}
 }

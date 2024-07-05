@@ -15,18 +15,18 @@ $links = $attributes['linkList'];
 
 if (count($links) > 0) {
    echo '
-   <nav>
-      <div class="lg:hidden fixed top-2 right-0 z-menuButtons">
-         <button class="absolute h-16 w-16 right-4 md:right-16" js-hook-burger-button>
-            <div class="relative w-full h-4" js-hook-button-lines-container>
-               <div class="w-12 h-[1px] bg-secondary" js-hook-button-line></div>
-               <div class="w-12 h-[1px] bg-secondary" js-hook-button-line></div>
+   <nav class="relative w-1/2">
+      <div class="lg:hidden fixed top-2 right-0 h-8 z-menuButtons">
+         <button class="absolute w-12 h-12 right-4 md:right-16 flex justify-end items-center" js-hook-burger-button>
+            <div class="relative w-full" js-hook-button-lines-container>
+               <div class="w-full h-[1px] bg-secondary" js-hook-button-line></div>
+               <div class="w-full h-[1px] bg-secondary" js-hook-button-line></div>
             </div>
          </button>
       </div>
       <ul class="fixed inset-0 lg:relative flex flex-col justify-center items-center lg:flex-row lg:justify-end gap-8 z-30 pointer-events-none" js-hook-link-list>';
    foreach ($links as $link) {
-      echo '<li class="pointer-events-auto"><a href="' . $link['slug'] . '" class="text-titleLarge lg:text-bodyMedium lg:underlined-link uppercase">' . $link['label'] . '</a></li>';
+      echo '<li class="pointer-events-auto"><a href="' . $link['slug'] . '" class="underlined-link text-titleLarge lg:text-bodyMedium lg:underlined-link uppercase">' . $link['label'] . '</a></li>';
    }
    echo '
       </ul>
