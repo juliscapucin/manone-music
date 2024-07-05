@@ -9,6 +9,7 @@ class HeaderMenu {
 		this.buttonLinesContainer;
 		this.linkList;
 		this.isOpen;
+		this.observer;
 		this.toggleMenuFromInside = this.toggleMenuFromInside.bind(this);
 		this.toggleMenu = this.toggleMenu.bind(this);
 
@@ -44,14 +45,13 @@ class HeaderMenu {
 		});
 
 		// Create an observer instance to check for attribute changes on the root element
-		const observer = new MutationObserver((mutationsList, observer) => {
+		this.observer = new MutationObserver((mutationsList, observer) => {
 			for (const mutation of mutationsList) {
 				if (
 					mutation.type === "attributes" &&
 					mutation.attributeName === "data-menu-open"
 				) {
 					if (!this.root.hasAttribute("data-menu-open")) {
-						console.log(this.root.hasAttribute("data-menu-open"));
 						this.toggleMenu();
 					}
 				}
@@ -64,10 +64,7 @@ class HeaderMenu {
 		};
 
 		// Start observing the target node for configured mutations
-		observer.observe(this.root, config);
-
-		// To stop observing
-		// observer.disconnect();
+		this.observer.observe(this.root, config);
 	}
 
 	toggleMenu() {
@@ -114,11 +111,12 @@ class HeaderMenu {
 
 	removeEventListeners() {
 		this.burgerButton.removeEventListener("click", this.toggleMenuFromInside);
+		this.observer.disconnect();
 	}
 
 	load() {
 		document.addEventListener("DOMContentLoaded", () => {
-			window.innerWidth < 1024 && this.init();
+			window.innerWidth < 1024 ? this.init() : this.removeEventListeners();
 		});
 	}
 }
