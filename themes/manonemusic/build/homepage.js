@@ -34,6 +34,8 @@ class HorizontalScroll {
     this.tween;
     this.pathname;
     this.scrollTarget;
+    this.isMobile = false;
+    this.root;
     this.panelUI = [{
       section: "home",
       x: 0,
@@ -83,7 +85,14 @@ class HorizontalScroll {
     this.headerLinks = document.querySelectorAll("header a");
     this.panels = gsap__WEBPACK_IMPORTED_MODULE_0__["default"].utils.toArray("#panels-inner-container .panel");
     this.pathname = window.location.pathname;
+    this.root = document.documentElement;
     const headings = document.querySelectorAll(".home-heading");
+    if (!this.panelsInnerContainer || !this.panelsOuterContainer) return;
+    if (this.isMobile) {
+      this.addMobileEvents();
+      return;
+    }
+    console.log("desktop ran");
     this.panelUI.forEach((panel, index) => {
       panel.x = this.panels[index].offsetLeft;
       panel.splitHeading = new gsap_dist_SplitText__WEBPACK_IMPORTED_MODULE_3__.SplitText(headings[index], {
@@ -100,9 +109,18 @@ class HorizontalScroll {
     this.addEvents();
   }
   addEvents() {
-    if (!this.panelsInnerContainer || !this.panelsOuterContainer) return;
     this.headerLinks.forEach(anchor => {
       anchor.addEventListener("click", this.handleHeaderLinks);
+    });
+  }
+  addMobileEvents() {
+    this.headerLinks.forEach(anchor => {
+      anchor.addEventListener("click", e => {
+        e.preventDefault();
+        if (this.root.hasAttribute("data-menu-open")) {
+          this.root.removeAttribute("data-menu-open");
+        }
+      });
     });
   }
   addScrollHandler() {
@@ -301,6 +319,8 @@ class HorizontalScroll {
       this.tween.kill();
     }
     gsap_dist_ScrollTrigger__WEBPACK_IMPORTED_MODULE_1__.ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    this.isMobile = true;
+    this.init();
   }
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HorizontalScroll);

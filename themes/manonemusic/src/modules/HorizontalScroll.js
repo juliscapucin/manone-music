@@ -14,6 +14,8 @@ class HorizontalScroll {
 		this.tween
 		this.pathname
 		this.scrollTarget
+		this.isMobile = false
+		this.root
 		this.panelUI = [
 			{ section: "home", x: 0, splitHeading: null, theme: "dark" },
 			{
@@ -74,9 +76,18 @@ class HorizontalScroll {
 		this.headerLinks = document.querySelectorAll("header a")
 		this.panels = gsap.utils.toArray("#panels-inner-container .panel")
 		this.pathname = window.location.pathname
+		this.root = document.documentElement
 
 		const headings = document.querySelectorAll(".home-heading")
 
+		if (!this.panelsInnerContainer || !this.panelsOuterContainer) return
+
+		if (this.isMobile) {
+			this.addMobileEvents()
+			return
+		}
+
+		console.log("desktop ran")
 		this.panelUI.forEach((panel, index) => {
 			panel.x = this.panels[index].offsetLeft
 			panel.splitHeading = new SplitText(headings[index], { type: "chars" }) // Create SplitText instance for each heading
@@ -96,10 +107,19 @@ class HorizontalScroll {
 	}
 
 	addEvents() {
-		if (!this.panelsInnerContainer || !this.panelsOuterContainer) return
-
 		this.headerLinks.forEach((anchor) => {
 			anchor.addEventListener("click", this.handleHeaderLinks)
+		})
+	}
+
+	addMobileEvents() {
+		this.headerLinks.forEach((anchor) => {
+			anchor.addEventListener("click", (e) => {
+				e.preventDefault()
+				if (this.root.hasAttribute("data-menu-open")) {
+					this.root.removeAttribute("data-menu-open")
+				}
+			})
 		})
 	}
 
@@ -335,6 +355,9 @@ class HorizontalScroll {
 			this.tween.kill()
 		}
 		ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+
+		this.isMobile = true
+		this.init()
 	}
 }
 
