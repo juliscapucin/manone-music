@@ -7,6 +7,7 @@ class HorizontalScroll {
 	constructor() {
 		this.handleHeaderLinks = this.handleHeaderLinks.bind(this)
 		this.handleScrollTo = this.handleScrollTo.bind(this)
+		this.handleClickOnMobile = this.handleClickOnMobile.bind(this)
 		this.panelsInnerContainer
 		this.panelsOuterContainer
 		this.headerLinks
@@ -84,10 +85,10 @@ class HorizontalScroll {
 
 		if (this.isMobile) {
 			this.addMobileEvents()
+			this.handleMobileActivePanel()
 			return
 		}
 
-		console.log("desktop ran")
 		this.panelUI.forEach((panel, index) => {
 			panel.x = this.panels[index].offsetLeft
 			panel.splitHeading = new SplitText(headings[index], { type: "chars" }) // Create SplitText instance for each heading
@@ -114,16 +115,47 @@ class HorizontalScroll {
 
 	addMobileEvents() {
 		this.headerLinks.forEach((anchor) => {
-			anchor.addEventListener("click", (e) => {
-				e.preventDefault()
-				if (this.root.hasAttribute("data-menu-open")) {
-					this.root.removeAttribute("data-menu-open")
-					const target = e.target.getAttribute("href").replace("/", "")
-					gsap.to(window, {
-						scrollTo: `#${target}`,
-						duration: 0.3,
-					})
-				}
+			anchor.addEventListener("click", this.handleClickOnMobile)
+		})
+	}
+
+	handleClickOnMobile(e) {
+		e.preventDefault()
+		if (this.root.hasAttribute("data-menu-open")) {
+			this.root.removeAttribute("data-menu-open")
+			const target = e.target.getAttribute("href").replace("/", "")
+			gsap.to(window, {
+				scrollTo: `#${target}`,
+				duration: 0.3,
+				onComplete: () => {
+					this.pathname = target
+					this.handlePathname()
+				},
+			})
+		}
+	}
+
+	handleMobileActivePanel() {
+		this.panels.forEach((panel, index) => {
+			gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, SplitText)
+
+			// SPLIT TEXT ANIMATION
+			ScrollTrigger.create({
+				trigger: panel,
+				containerAnimation: this.tween,
+				// markers: true,
+				start: () => "top center",
+				end: "bottom top",
+				onEnter: () => {
+					this.activePanel = panel
+					this.pathname = this.panelUI[index].section
+					this.handlePathname()
+				},
+				onEnterBack: () => {
+					this.activePanel = panel
+					this.pathname = this.panelUI[index].section
+					this.handlePathname()
+				},
 			})
 		})
 	}
@@ -216,8 +248,6 @@ class HorizontalScroll {
 				anchor.classList.add("active")
 			}
 		})
-
-		// this.handleBackgroundColor()
 	}
 
 	handleActivePanel() {

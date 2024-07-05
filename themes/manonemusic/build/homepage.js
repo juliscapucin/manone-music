@@ -27,6 +27,7 @@ class HorizontalScroll {
   constructor() {
     this.handleHeaderLinks = this.handleHeaderLinks.bind(this);
     this.handleScrollTo = this.handleScrollTo.bind(this);
+    this.handleClickOnMobile = this.handleClickOnMobile.bind(this);
     this.panelsInnerContainer;
     this.panelsOuterContainer;
     this.headerLinks;
@@ -90,9 +91,9 @@ class HorizontalScroll {
     if (!this.panelsInnerContainer || !this.panelsOuterContainer) return;
     if (this.isMobile) {
       this.addMobileEvents();
+      this.handleMobileActivePanel();
       return;
     }
-    console.log("desktop ran");
     this.panelUI.forEach((panel, index) => {
       panel.x = this.panels[index].offsetLeft;
       panel.splitHeading = new gsap_dist_SplitText__WEBPACK_IMPORTED_MODULE_3__.SplitText(headings[index], {
@@ -115,15 +116,44 @@ class HorizontalScroll {
   }
   addMobileEvents() {
     this.headerLinks.forEach(anchor => {
-      anchor.addEventListener("click", e => {
-        e.preventDefault();
-        if (this.root.hasAttribute("data-menu-open")) {
-          this.root.removeAttribute("data-menu-open");
-          const target = e.target.getAttribute("href").replace("/", "");
-          gsap__WEBPACK_IMPORTED_MODULE_0__["default"].to(window, {
-            scrollTo: `#${target}`,
-            duration: 0.3
-          });
+      anchor.addEventListener("click", this.handleClickOnMobile);
+    });
+  }
+  handleClickOnMobile(e) {
+    e.preventDefault();
+    if (this.root.hasAttribute("data-menu-open")) {
+      this.root.removeAttribute("data-menu-open");
+      const target = e.target.getAttribute("href").replace("/", "");
+      gsap__WEBPACK_IMPORTED_MODULE_0__["default"].to(window, {
+        scrollTo: `#${target}`,
+        duration: 0.3,
+        onComplete: () => {
+          this.pathname = target;
+          this.handlePathname();
+        }
+      });
+    }
+  }
+  handleMobileActivePanel() {
+    this.panels.forEach((panel, index) => {
+      gsap__WEBPACK_IMPORTED_MODULE_0__["default"].registerPlugin(gsap_dist_ScrollTrigger__WEBPACK_IMPORTED_MODULE_1__.ScrollTrigger, gsap_dist_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_2__.ScrollToPlugin, gsap_dist_SplitText__WEBPACK_IMPORTED_MODULE_3__.SplitText);
+
+      // SPLIT TEXT ANIMATION
+      gsap_dist_ScrollTrigger__WEBPACK_IMPORTED_MODULE_1__.ScrollTrigger.create({
+        trigger: panel,
+        containerAnimation: this.tween,
+        // markers: true,
+        start: () => "top center",
+        end: "bottom top",
+        onEnter: () => {
+          this.activePanel = panel;
+          this.pathname = this.panelUI[index].section;
+          this.handlePathname();
+        },
+        onEnterBack: () => {
+          this.activePanel = panel;
+          this.pathname = this.panelUI[index].section;
+          this.handlePathname();
         }
       });
     });
@@ -204,8 +234,6 @@ class HorizontalScroll {
         anchor.classList.add("active");
       }
     });
-
-    // this.handleBackgroundColor()
   }
   handleActivePanel() {
     this.panels.forEach((panel, index) => {
