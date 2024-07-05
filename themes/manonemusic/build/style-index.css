@@ -712,6 +712,14 @@ cite{
   border-width: 0;
 }
 
+.pointer-events-none{
+  pointer-events: none;
+}
+
+.pointer-events-auto{
+  pointer-events: auto;
+}
+
 .visible{
   visibility: visible;
 }
@@ -788,12 +796,20 @@ cite{
   z-index: -10;
 }
 
+.z-20{
+  z-index: 20;
+}
+
+.z-30{
+  z-index: 30;
+}
+
 .z-50{
   z-index: 50;
 }
 
-.z-20{
-  z-index: 20;
+.z-menuButtons{
+  z-index: 100;
 }
 
 .float-left{
@@ -843,10 +859,6 @@ cite{
 
 .mt-8{
   margin-top: 2rem;
-}
-
-.mr-4{
-  margin-right: 1rem;
 }
 
 .block{
@@ -955,10 +967,6 @@ cite{
   width: 100%;
 }
 
-.w-screen{
-  width: 100vw;
-}
-
 .min-w-40{
   min-width: 10rem;
 }
@@ -1006,10 +1014,6 @@ cite{
 
 .items-start{
   align-items: flex-start;
-}
-
-.items-end{
-  align-items: flex-end;
 }
 
 .items-center{
@@ -1116,6 +1120,10 @@ cite{
   background-color: rgba(var(--color-secondary-rgb), 0.1);
 }
 
+.bg-faded-30{
+  background-color: rgba(var(--color-secondary-rgb), 0.3);
+}
+
 .bg-primary{
   --tw-bg-opacity: 1;
   background-color: rgb(var(--color-primary) / var(--tw-bg-opacity));
@@ -1139,11 +1147,6 @@ cite{
 .px-1{
   padding-left: 0.25rem;
   padding-right: 0.25rem;
-}
-
-.px-4{
-  padding-left: 1rem;
-  padding-right: 1rem;
 }
 
 .px-8{
@@ -1214,18 +1217,6 @@ cite{
 
 .text-titleSmall{
   font-size: 16px;
-}
-
-.text-displayMedium{
-  font-size: 103px;
-}
-
-.text-headlineMedium{
-  font-size: 72px;
-}
-
-.text-headlineSmall{
-  font-size: 64px;
 }
 
 .font-bold{
@@ -1749,14 +1740,6 @@ a {
     width: 24rem;
   }
 
-  .md\:flex-row{
-    flex-direction: row;
-  }
-
-  .md\:gap-4{
-    gap: 1rem;
-  }
-
   .md\:px-16{
     padding-left: 4rem;
     padding-right: 4rem;
@@ -1788,12 +1771,12 @@ a {
     gap: 8rem;
   }
 
-  .lg\:gap-8{
-    gap: 2rem;
-  }
-
   .lg\:overflow-visible{
     overflow: visible;
+  }
+
+  .lg\:text-bodyMedium{
+    font-size: 16px;
   }
 
   .lg\:text-labelLarge{
@@ -1802,10 +1785,6 @@ a {
 
   .lg\:text-titleMedium{
     font-size: 18px;
-  }
-
-  .lg\:text-bodyMedium{
-    font-size: 16px;
   }
 }
 

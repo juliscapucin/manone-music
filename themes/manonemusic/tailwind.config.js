@@ -53,6 +53,9 @@ module.exports = {
 			lineHeight: {
 				tighter: "0.85",
 			},
+			zIndex: {
+				menuButtons: "100",
+			},
 		},
 	},
 	plugins: [],
