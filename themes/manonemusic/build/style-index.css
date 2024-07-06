@@ -772,6 +772,10 @@ cite{
   right: 0px;
 }
 
+.right-4{
+  right: 1rem;
+}
+
 .right-40{
   right: 10rem;
 }
@@ -790,14 +794,6 @@ cite{
 
 .top-2{
   top: 0.5rem;
-}
-
-.right-32{
-  right: 8rem;
-}
-
-.right-4{
-  right: 1rem;
 }
 
 .isolate{
@@ -966,6 +962,10 @@ cite{
   height: 100%;
 }
 
+.w-1\/2{
+  width: 50%;
+}
+
 .w-12{
   width: 3rem;
 }
@@ -992,10 +992,6 @@ cite{
 
 .w-screen{
   width: 100vw;
-}
-
-.w-1\/2{
-  width: 50%;
 }
 
 .min-w-40{
@@ -1152,11 +1148,6 @@ cite{
   background-color: rgb(var(--color-primary) / var(--tw-bg-opacity));
 }
 
-.bg-red{
-  --tw-bg-opacity: 1;
-  background-color: rgb(204 0 0 / var(--tw-bg-opacity));
-}
-
 .bg-secondary{
   --tw-bg-opacity: 1;
   background-color: rgb(var(--color-secondary) / var(--tw-bg-opacity));
@@ -1281,6 +1272,10 @@ cite{
   text-decoration-line: line-through;
 }
 
+.opacity-50{
+  opacity: 0.5;
+}
+
 .shadow{
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
@@ -1289,6 +1284,11 @@ cite{
 
 .outline{
   outline-style: solid;
+}
+
+.grayscale{
+  --tw-grayscale: grayscale(100%);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .filter{
@@ -1301,6 +1301,26 @@ cite{
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
+}
+
+.transition-all{
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.transition-transform{
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.duration-200{
+  transition-duration: 200ms;
+}
+
+.duration-300{
+  transition-duration: 300ms;
 }
 
 .ease-in{
@@ -1627,22 +1647,14 @@ a {
 /* HEADING */
 
 .is-style-logo-huge{
-  margin-top: 8rem;
   margin-bottom: 1rem;
   display: block;
   width: 100%;
   line-height: 0.85;
 }
 
-@media (min-width: 640px){
-  .is-style-logo-huge{
-    margin-top: 16rem;
-  }
-}
-
 @media (min-width: 768px){
   .is-style-logo-huge{
-    margin-top: 8rem;
     margin-left: -0.5rem;
     margin-bottom: 0px;
     line-height: 1;
@@ -1666,7 +1678,7 @@ a {
 }
 
 .is-style-heading-display{
-  margin-top: 4rem;
+  margin-top: 2rem;
   margin-bottom: 2rem;
   display: block;
   font-size: 64px;
@@ -1687,7 +1699,7 @@ a {
 }
 
 .is-style-heading-headline{
-  margin-top: 4rem;
+  margin-top: 2rem;
   margin-bottom: 2rem;
   display: block;
   font-size: 64px;
@@ -1767,6 +1779,42 @@ a {
 
 .active.underlined-link::after {
   transform: translateX(0%);
+}
+
+.button-rounded{
+  border-radius: 1.5rem;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(var(--color-secondary) / var(--tw-border-opacity));
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+.button-rounded:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--color-secondary) / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(var(--color-primary) / var(--tw-text-opacity));
+}
+
+.hover\:opacity-100:hover{
+  opacity: 1;
+}
+
+.hover\:grayscale-0:hover{
+  --tw-grayscale: grayscale(0);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.group:hover .group-hover\:scale-\[102\%\]{
+  --tw-scale-x: 102%;
+  --tw-scale-y: 102%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 @media (min-width: 768px){

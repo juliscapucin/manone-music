@@ -262,16 +262,16 @@ a {
 /* HEADING */
 
 .is-style-logo-huge {
-	@apply block w-full mt-32 sm:mt-64 md:mt-32 md:-ml-2 lg:-ml-2 xl:-ml-3 mb-4 md:mb-0 leading-tighter md:leading-none;
+	@apply block w-full md:-ml-2 lg:-ml-2 xl:-ml-3 mb-4 md:mb-0 leading-tighter md:leading-none;
 	font-size: clamp(4.5rem, 11vw, 12.3rem);
 }
 
 .is-style-heading-display {
-	@apply block text-displaySmall md:text-displayMedium lg:text-displayLarge tracking-[-5px] leading-none mt-16 mb-8;
+	@apply block text-displaySmall md:text-displayMedium lg:text-displayLarge tracking-[-5px] leading-none mt-8 mb-8;
 }
 
 .is-style-heading-headline {
-	@apply block text-headlineSmall md:text-headlineMedium lg:text-headlineLarge tracking-[-2px] leading-none mt-16 mb-8;
+	@apply block text-headlineSmall md:text-headlineMedium lg:text-headlineLarge tracking-[-2px] leading-none mt-8 mb-8;
 }
 
 /* PARAGRAPH */
@@ -318,4 +318,8 @@ a {
 
 .active.underlined-link::after {
 	transform: translateX(0%);
+}
+
+.button-rounded {
+	@apply border border-secondary rounded-3xl py-1 px-3 hover:bg-secondary hover:text-primary transition-colors duration-200;
 }
