@@ -26,7 +26,7 @@ if (count($links) > 0) {
       </div>
       <ul class="fixed inset-0 lg:relative flex flex-col justify-center items-center lg:flex-row lg:justify-end gap-8 z-30 pointer-events-none" js-hook-link-list>';
    foreach ($links as $link) {
-      echo '<li class="pointer-events-auto"><a href="' . $link['slug'] . '" class="underlined-link text-titleLarge lg:text-bodyMedium lg:underlined-link uppercase">' . $link['label'] . '</a></li>';
+      echo '<li class="pointer-events-auto' . ($link['slug'] == '/home' ? ' lg:hidden ' : '') . '"><a href="' . $link['slug'] . '" class="underlined-link text-titleLarge lg:text-bodyMedium lg:underlined-link uppercase">' . $link['label'] . '</a></li>';
    }
    echo '
       </ul>

@@ -1830,6 +1830,10 @@ a {
     margin-top: 0px;
   }
 
+  .md\:hidden{
+    display: none;
+  }
+
   .md\:h-\[--container-height-desktop\]{
     height: var(--container-height-desktop);
   }
