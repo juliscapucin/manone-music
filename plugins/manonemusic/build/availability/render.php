@@ -14,39 +14,66 @@
 // print_r($attributes);
 // echo '</pre>';
 
-// Get the current post ID
-$post_id = get_the_ID();
-
-// Retrieve the ACF 'release_date' field
-$release_date = get_field('release_date', $post_id);
-
-// Function to format the release date
-function format_release_date($date_string)
-{
-	$date = DateTime::createFromFormat('d/m/Y', $date_string);
-	if ($date) {
-		return $date->format('F Y');
+if (!function_exists('getNextMonth')) {
+	function getNextMonth()
+	{
+		$currentDate = new DateTime();
+		return $currentDate->modify('+1 month');
 	}
-	return $date_string; // return the original string if parsing fails
 }
+
+if (!function_exists('parseStringToDate')) {
+	function parseStringToDate($dateString)
+	{
+		$parts = explode(" ", $dateString);
+		if (count($parts) === 2) {
+			$month = DateTime::createFromFormat('F', $parts[0])->format('m');
+			$year = intval($parts[1]);
+			return new DateTime("$year-$month-01");
+		}
+		return getNextMonth();
+	}
+}
+
+if (!function_exists('furtherAvailability')) {
+	function furtherAvailability()
+	{
+		$formatMonth = function ($futureDate) {
+			return $futureDate->format('F Y');
+		};
+
+
+		return $formatMonth(getNextMonth());
+	}
+}
+
+if (!function_exists('furtherAvailabilitySet')) {
+	function furtherAvailabilitySet($date)
+	{
+		$formatMonth = function ($futureDate) {
+			return $futureDate->format('F Y');
+		};
+
+		$cmsDate = parseStringToDate($date);
+		return $cmsDate < getNextMonth() ? $formatMonth(getNextMonth()) : $formatMonth($cmsDate);
+	}
+}
+
+$finalDate = (isset($attributes['date'])) ? furtherAvailabilitySet($attributes['date']) : furtherAvailability();
 
 ?>
 
 <div class="w-full space-y-2 ml-2 mb-16">
 	<?php
 
-	if (isset($release_date) && !empty($release_date)) {
-		$formatted_date = format_release_date($release_date);
-		echo '<p>Release date ' . esc_html($formatted_date) . '</p>';
-	}
+	echo '<div class=mt-8 color-secondary>';
 
-	if (isset($attributes['projectDescription']) && !empty($attributes['projectDescription'])) {
-		echo '<p>' . esc_html($attributes['projectDescription']) . '</p>';
-	}
 
-	if (isset($attributes['url']) && !empty($attributes['url'])) {
-		$escaped_url = esc_url($attributes['url']);
-		echo '<p><a href="' . $escaped_url . '" target="_blank" rel="noopener noreferrer">' . esc_html($attributes['label']) . '</a></p>';
-	}
+	echo '<span>Available ' . $finalDate . '</span>';
+
+	echo '</div>';
+
+	echo '<a class="block bg-primary uppercase border border-secondary rounded-3xl mt-8 py-2 px-3 leading-tighter w-fit text-center hover:bg-secondary hover:text-primary transition-colors duration-200" href="' . esc_html($attributes['email']) . '" target="_blank" rel="noopener noreferrer">' . esc_html($attributes['buttonLabel']) . '</a>';
+
 	?>
 </div>

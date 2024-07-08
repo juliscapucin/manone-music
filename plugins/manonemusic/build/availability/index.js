@@ -14,9 +14,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.css */ "./src/availability/style.css");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.css */ "./src/availability/style.css");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
+
 
 
 /**
@@ -36,61 +39,61 @@ function Edit({
     className: "w-full mt-8 flex flex-col font-primary"
   });
   const {
-    projectDescription,
-    url,
-    label
+    date,
+    buttonLabel,
+    email
   } = attributes;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+  const getNextMonth = () => {
+    const currentDate = new Date();
+    return new Date(currentDate.getFullYear(), currentDate.getMonth() + 1);
+  };
+  const parseStringToDate = dateString => {
+    const parts = dateString.split(" ");
+    if (parts.length === 2) {
+      const month = new Date(`${parts[0]} 1, 1970`).getMonth();
+      const year = parseInt(parts[1], 10);
+      return new Date(year, month);
+    }
+    return getNextMonth();
+  };
+  const furtherAvailability = () => {
+    const formatMonth = futureDate => `${futureDate.toLocaleString("default", {
+      month: "long"
+    })} ${futureDate.getFullYear()}`;
+    if (!date) {
+      return formatMonth(getNextMonth());
+    }
+    const cmsDate = parseStringToDate(date);
+    return cmsDate.getTime() < getNextMonth.getTime() ? formatMonth(getNextMonth) : formatMonth(cmsDate);
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
     ...blockProps,
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.RichText, {
-      tagName: "div",
-      className: "mt-2",
-      value: projectDescription,
-      onChange: content => setAttributes({
-        projectDescription: content
-      }),
-      placeholder: "Enter project description. Leave empty if you don't want to display it."
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       className: "mt-8",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-        className: "text-labelLarge font-semibold",
-        children: "Add project link:"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        className: "mt-2",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-          className: "text-labelLarge font-semibold",
-          children: "Link text:"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          className: "border border-secondary p-2",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.PlainText, {
-            tagName: "div",
-            className: "bg-primary",
-            value: label,
-            onChange: value => setAttributes({
-              label: value
-            }),
-            placeholder: "Enter link label. Leave empty if you don't want to display it."
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          className: "text-labelLarge",
+          children: "Available"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.PlainText, {
+          tagName: "span",
+          className: "bg-primary",
+          value: date ? date : furtherAvailability(),
+          onChange: value => setAttributes({
+            date: value
           })
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: "mt-2",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-          className: "text-labelLarge font-semibold",
-          children: "Link URL:"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          className: "border border-secondary p-2",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.PlainText, {
-            tagName: "div",
-            className: "bg-primary",
-            value: url,
-            onChange: value => setAttributes({
-              url: value
-            }),
-            placeholder: "Enter link url. Leave empty if you don't want to display it."
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.PlainText, {
+          tagName: "div",
+          className: "bg-primary uppercase border border-secondary rounded-3xl py-2 px-3 leading-tighter w-fit text-center hover:bg-secondary hover:text-primary transition-colors duration-200",
+          value: buttonLabel,
+          onChange: value => setAttributes({
+            buttonLabel: value
           })
-        })]
+        })
       })]
-    })]
+    })
   });
 }
 
@@ -163,6 +166,16 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "react":
+/*!************************!*\
+  !*** external "React" ***!
+  \************************/
+/***/ ((module) => {
+
+module.exports = window["React"];
+
+/***/ }),
+
 /***/ "react/jsx-runtime":
 /*!**********************************!*\
   !*** external "ReactJSXRuntime" ***!
@@ -199,7 +212,7 @@ module.exports = window["wp"]["blocks"];
   \*************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"manonemusic/availability","version":"0.1.0","title":"Availability","category":"text","icon":"smiley","description":"Availability","example":{},"supports":{"html":false},"attributes":{},"textdomain":"availability","editorScript":"file:./index.js","editorStyle":"file:./../style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"manonemusic/availability","version":"0.1.0","title":"Availability","category":"text","icon":"smiley","description":"Availability","example":{},"supports":{"html":false},"attributes":{"date":{"type":"string"},"email":{"type":"string","default":"hello@manonemusic.com"},"buttonLabel":{"type":"string","default":"Get In Touch"}},"textdomain":"availability","editorScript":"file:./index.js","editorStyle":"file:./../style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ })
 

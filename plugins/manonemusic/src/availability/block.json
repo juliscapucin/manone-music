@@ -11,7 +11,19 @@
 	"supports": {
 		"html": false
 	},
-	"attributes": {},
+	"attributes": {
+		"date":{
+			"type": "string"
+		},
+		"email":{
+			"type": "string",
+			"default": "hello@manonemusic.com"
+		},
+		"buttonLabel":{
+			"type": "string",
+			"default": "Get In Touch"
+		}
+	},
 	"textdomain": "availability",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./../style-index.css",
