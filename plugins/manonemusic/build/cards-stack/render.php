@@ -30,7 +30,7 @@ if ($query->have_posts()) {
       $thumbnail_url = get_the_post_thumbnail_url();
 
       $content .= <<<HTML
-      <a href="{$permalink}" class="block relative w-full aspect-square">
+      <a href="{$permalink}" class="block relative w-full aspect-square" js-hook-transition-link>
          <img class="w-full h-full object-cover" src='{$thumbnail_url}' />
          <p class="hidden md:block">{$title}</p>
       </a>

@@ -23,10 +23,6 @@ add_filter('wp_head', function () {
          .page-exit.active {
             transform: translate3d(0, 100%, 0);
          }
-
-         .nice_page_transition_opacity {
-            opacity: 0;
-         }
       </style>
 
    <?php }
@@ -43,7 +39,9 @@ add_filter('wp_footer', function () {
       <script>
          document.addEventListener("DOMContentLoaded", function() {
 
-            [...document.querySelectorAll('a:not([href^=\\#])')].forEach(function(e) {
+            [...document.querySelectorAll('[js-hook-transition-link]')].forEach(function(e) {
+               console.log(e)
+
                e.addEventListener("click", () => {
                   document.querySelector('.page-exit').classList.add('active');
                   setTimeout(function() {

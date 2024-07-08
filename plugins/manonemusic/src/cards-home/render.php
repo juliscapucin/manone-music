@@ -32,7 +32,7 @@ if ($query->have_posts()) {
       $thumbnail_url = get_the_post_thumbnail_url();
 
       $content .= <<<HTML
-      <a href="{$permalink}" class="relative w-40 min-w-40 max-w-40 opacity-50 grayscale group hover:opacity-100 hover:grayscale-0 transition-all duration-200">
+      <a href="{$permalink}" class="relative w-40 min-w-40 max-w-40 opacity-50 grayscale group hover:opacity-100 hover:grayscale-0 transition-all duration-200" js-hook-transition-link>
          <div href="{$permalink}" class="w-full overflow-clip rounded-sm' . $aspectRatio . '">
             <img class="w-full h-full object-cover group-hover:scale-[102%] transition-transform duration-300" src='{$thumbnail_url}' />
          </div>
