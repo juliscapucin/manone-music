@@ -32,7 +32,7 @@ if ($query->have_posts()) {
       $content .= <<<HTML
       <a href="{$permalink}" class="block relative w-full aspect-square">
          <img class="w-full h-full object-cover" src='{$thumbnail_url}' />
-         <p>{$title}</p>
+         <p class="hidden md:block">{$title}</p>
       </a>
       HTML;
    }
@@ -40,7 +40,7 @@ if ($query->have_posts()) {
 };
 
 ?>
-<div class="cards-stack fixed top-16 bottom-0 right-8 w-40 overflow-y-scroll overscroll-contain pr-8 pb-8 space-y-16">
+<div class="cards-stack fixed top-32 bottom-0 right-0 md:right-8 w-16 sm:w-24 md:w-40 overflow-y-scroll overscroll-contain pr-4 md:pr-8 pb-8 space-y-8 md:space-y-16">
    <?php
    echo $content;
    ?>

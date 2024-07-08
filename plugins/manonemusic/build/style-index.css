@@ -666,20 +666,16 @@ video {
   right: 10rem;
 }
 
-.right-8{
-  right: 2rem;
-}
-
 .top-0{
   top: 0px;
 }
 
-.top-16{
-  top: 4rem;
-}
-
 .top-2{
   top: 0.5rem;
+}
+
+.top-32{
+  top: 8rem;
 }
 
 .-z-10{
@@ -916,6 +912,12 @@ video {
   margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
 }
 
+.space-y-8 > :not([hidden]) ~ :not([hidden]){
+  --tw-space-y-reverse: 0;
+  margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(2rem * var(--tw-space-y-reverse));
+}
+
 .overflow-clip{
   overflow: clip;
 }
@@ -1017,6 +1019,10 @@ video {
   padding-right: 4rem;
 }
 
+.pr-4{
+  padding-right: 1rem;
+}
+
 .pr-8{
   padding-right: 2rem;
 }
@@ -1102,14 +1108,14 @@ video {
   transition-duration: 150ms;
 }
 
-.transition-transform{
-  transition-property: transform;
+.transition-colors{
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
 
-.transition-colors{
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+.transition-transform{
+  transition-property: transform;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
@@ -1170,6 +1176,12 @@ body {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+@media (min-width: 640px){
+  .sm\:w-24{
+    width: 6rem;
+  }
+}
+
 @media (min-width: 768px){
   .md\:absolute{
     position: absolute;
@@ -1179,12 +1191,34 @@ body {
     right: 4rem;
   }
 
+  .md\:right-8{
+    right: 2rem;
+  }
+
+  .md\:block{
+    display: block;
+  }
+
   .md\:h-\[--container-height-desktop\]{
     height: var(--container-height-desktop);
   }
 
+  .md\:w-40{
+    width: 10rem;
+  }
+
   .md\:w-96{
     width: 24rem;
+  }
+
+  .md\:space-y-16 > :not([hidden]) ~ :not([hidden]){
+    --tw-space-y-reverse: 0;
+    margin-top: calc(4rem * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(4rem * var(--tw-space-y-reverse));
+  }
+
+  .md\:pr-8{
+    padding-right: 2rem;
   }
 
   .md\:text-labelMedium{

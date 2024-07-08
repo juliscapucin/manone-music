@@ -236,7 +236,7 @@ a {
 
 /* PAGE CONTAINER */
 .is-style-group-page-container {
-	@apply w-full min-h-[--container-height-desktop] max-w-wide py-16 px-8 my-0 mx-auto;
+	@apply w-full min-h-[--container-height-desktop] max-w-wide pt-32 pb-16 px-4 md:px-16 my-0;
 }
 
 /* IMAGE */
