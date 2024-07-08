@@ -314,7 +314,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/tru
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"project-info/index": 0,
-/******/ 			"link/style-index": 0,
+/******/ 			"availability/style-index": 0,
 /******/ 			"project-info/style-index": 0
 /******/ 		};
 /******/ 		
@@ -365,7 +365,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/tru
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["link/style-index","project-info/style-index"], () => (__webpack_require__("./src/project-info/index.js")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["availability/style-index","project-info/style-index"], () => (__webpack_require__("./src/project-info/index.js")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

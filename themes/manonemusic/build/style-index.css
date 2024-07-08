@@ -828,6 +828,10 @@ cite{
   margin-bottom: 4rem;
 }
 
+.mb-32{
+  margin-bottom: 8rem;
+}
+
 .mb-4{
   margin-bottom: 1rem;
 }
@@ -1523,18 +1527,18 @@ a {
   width: 100vw;
 }
 
+@media (min-width: 768px){
+  .is-style-group-full{
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+}
+
 @media (min-width: 1024px){
   .is-style-group-full{
     display: flex;
     height: var(--container-height-desktop);
     flex-wrap: nowrap;
-  }
-}
-
-@media (min-width: 1280px){
-  .is-style-group-full{
-    width: -moz-fit-content;
-    width: fit-content;
   }
 }
 
@@ -1545,7 +1549,7 @@ a {
 .is-style-group-section{
   position: relative;
   height: var(--container-height-desktop);
-  width: 100vw;
+  min-width: 100vw;
   padding-left: 1rem;
   padding-right: 1rem;
   padding-top: var(--header-height);
@@ -1553,17 +1557,14 @@ a {
 
 @media (min-width: 768px){
   .is-style-group-section{
+    width: -moz-fit-content;
+    width: fit-content;
     padding-left: 4rem;
-    padding-right: 4rem;
+    padding-right: 10rem;
   }
 }
 
 @media (min-width: 1024px){
-  .is-style-group-section{
-    min-width: 100vw;
-    padding-right: 24rem;
-  }
-
   .is-style-group-section:last-child{
     padding-right: 0px;
   }
@@ -1571,8 +1572,6 @@ a {
 
 @media (min-width: 1280px){
   .is-style-group-section{
-    width: -moz-fit-content;
-    width: fit-content;
     padding-right: 16rem;
   }
 }
@@ -1686,13 +1685,13 @@ a {
   letter-spacing: -5px;
 }
 
-@media (min-width: 768px){
+@media (min-width: 1024px){
   .is-style-heading-display{
     font-size: 103px;
   }
 }
 
-@media (min-width: 1024px){
+@media (min-width: 1280px){
   .is-style-heading-display{
     font-size: 147px;
   }
@@ -1707,13 +1706,13 @@ a {
   letter-spacing: -2px;
 }
 
-@media (min-width: 768px){
+@media (min-width: 1024px){
   .is-style-heading-headline{
     font-size: 72px;
   }
 }
 
-@media (min-width: 1024px){
+@media (min-width: 1280px){
   .is-style-heading-headline{
     font-size: 81px;
   }
@@ -1786,10 +1785,11 @@ a {
   border-width: 1px;
   --tw-border-opacity: 1;
   border-color: rgb(var(--color-secondary) / var(--tw-border-opacity));
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
+  line-height: 0.85;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 200ms;
@@ -1828,10 +1828,6 @@ a {
 
   .md\:mt-0{
     margin-top: 0px;
-  }
-
-  .md\:hidden{
-    display: none;
   }
 
   .md\:h-\[--container-height-desktop\]{

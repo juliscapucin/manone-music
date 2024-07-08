@@ -220,13 +220,13 @@ a {
 
 /* HORIZONTAL PANEL (inner panel) */
 .is-style-group-full {
-	@apply lg:h-[--container-height-desktop] w-screen xl:w-fit lg:flex lg:flex-nowrap;
+	@apply lg:h-[--container-height-desktop] w-screen md:w-fit lg:flex lg:flex-nowrap;
 }
 
 /* HOME SECTIONS */
 /* panel */
 .is-style-group-section {
-	@apply relative h-[--container-height-desktop] pt-[--header-height] w-screen lg:min-w-screen xl:w-fit px-4 md:px-16 xl:pr-64 lg:pr-96 lg:last:pr-0;
+	@apply relative h-[--container-height-desktop] pt-[--header-height] min-w-screen md:w-fit px-4 md:pl-16 md:pr-40 xl:pr-64 lg:last:pr-0;
 }
 
 /* inner panel */
@@ -267,11 +267,11 @@ a {
 }
 
 .is-style-heading-display {
-	@apply block text-displaySmall md:text-displayMedium lg:text-displayLarge tracking-[-5px] leading-none mt-8 mb-8;
+	@apply block text-displaySmall lg:text-displayMedium xl:text-displayLarge tracking-[-5px] leading-none mt-8 mb-8;
 }
 
 .is-style-heading-headline {
-	@apply block text-headlineSmall md:text-headlineMedium lg:text-headlineLarge tracking-[-2px] leading-none mt-8 mb-8;
+	@apply block text-headlineSmall lg:text-headlineMedium xl:text-headlineLarge tracking-[-2px] leading-none mt-8 mb-8;
 }
 
 /* PARAGRAPH */
@@ -321,5 +321,5 @@ a {
 }
 
 .button-rounded {
-	@apply border border-secondary rounded-3xl py-1 px-3 hover:bg-secondary hover:text-primary transition-colors duration-200;
+	@apply border border-secondary rounded-3xl py-2 px-3 leading-tighter hover:bg-secondary hover:text-primary transition-colors duration-200;
 }
