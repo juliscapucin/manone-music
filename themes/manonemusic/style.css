@@ -41,7 +41,7 @@ Text Domain: manonemusic
 		100svh - var(--padding-mobile) - var(--header-height)
 	);
 	--container-height-desktop: calc(
-		100svh - var(--padding-mobile) - var(--header-height)
+		100svh - var(--padding-desktop) - var(--header-height)
 	);
 	--panels-container-width-desktop: calc(100vw * 5);
 	--container-height-desktop: calc(100vh);
@@ -92,15 +92,7 @@ Text Domain: manonemusic
 	}
 
 	a {
-		@apply font-primary text-secondary transition-all duration-200;
-	}
-
-	header a {
-		@apply relative overflow-x-clip before:content-[''] before:block before:w-full before:h-[1px] before:bg-secondary before:absolute before:bottom-0 before:-translate-x-full before:transition-all before:duration-200;
-	}
-
-	header a.active {
-		@apply before:translate-x-0;
+		@apply font-primary text-secondary;
 	}
 
 	li,
@@ -126,6 +118,10 @@ Text Domain: manonemusic
 	/* box-sizing: border-box; */
 	padding: 0;
 	margin: 0;
+}
+
+a {
+	text-decoration: none !important;
 }
 
 /* --------------- */
@@ -224,23 +220,23 @@ Text Domain: manonemusic
 
 /* HORIZONTAL PANEL (inner panel) */
 .is-style-group-full {
-	@apply lg:h-[--container-height-desktop] w-fit lg:flex lg:flex-nowrap;
+	@apply lg:h-[--container-height-desktop] w-screen md:w-fit lg:flex lg:flex-nowrap;
 }
 
 /* HOME SECTIONS */
 /* panel */
 .is-style-group-section {
-	@apply relative h-[--container-height-desktop] min-w-screen w-fit px-8 md:px-16 lg:pr-96 lg:last:pr-0;
+	@apply relative h-[--container-height-desktop] pt-[--header-height] min-w-screen md:w-fit px-4 md:pl-16 md:pr-40 xl:pr-64 lg:last:pr-0;
 }
 
 /* inner panel */
 .is-style-max-width {
-	@apply relative w-screen max-w-wide overflow-clip;
+	@apply relative w-full max-w-wide overflow-clip;
 }
 
 /* PAGE CONTAINER */
 .is-style-group-page-container {
-	@apply w-full min-h-[--container-height-desktop] max-w-wide py-16 px-8 my-0 mx-auto;
+	@apply w-full min-h-[--container-height-desktop] max-w-wide pt-32 pb-16 px-4 md:px-16 my-0;
 }
 
 /* IMAGE */
@@ -266,16 +262,16 @@ Text Domain: manonemusic
 /* HEADING */
 
 .is-style-logo-huge {
-	@apply block w-full mt-32 sm:mt-64 md:mt-32 md:-ml-2 lg:-ml-2 xl:-ml-3 mb-4 md:mb-0 leading-tighter md:leading-none;
-	font-size: clamp(4.5rem, 11vw, 13rem);
+	@apply block w-full md:-ml-2 lg:-ml-2 xl:-ml-3 mb-4 md:mb-0 leading-tighter md:leading-none;
+	font-size: clamp(4.5rem, 11vw, 12.3rem);
 }
 
 .is-style-heading-display {
-	@apply block text-displaySmall md:text-displayMedium lg:text-displayLarge tracking-[-5px] leading-none mt-32 mb-8;
+	@apply block text-displaySmall lg:text-displayMedium xl:text-displayLarge tracking-[-5px] leading-none mt-8 mb-8;
 }
 
 .is-style-heading-headline {
-	@apply block text-headlineSmall md:text-headlineMedium lg:text-headlineLarge tracking-[-2px] leading-none mt-16 mb-8;
+	@apply block text-headlineSmall lg:text-headlineMedium xl:text-headlineLarge tracking-[-2px] leading-none mt-8 mb-8;
 }
 
 /* PARAGRAPH */
@@ -291,4 +287,39 @@ Text Domain: manonemusic
 .sticky-heading {
 	position: fixed;
 	left: 0;
+}
+
+.underlined-link {
+	text-decoration: none !important;
+	position: relative;
+	display: inline-block;
+	overflow-x: clip;
+	text-decoration: none;
+	width: fit-content;
+	color: var(--color-secondary);
+}
+
+.underlined-link::after {
+	content: "";
+	position: absolute;
+	z-index: 50;
+	bottom: 2px;
+	left: 0;
+	width: 100%;
+	height: 1px;
+	background-color: currentColor;
+	transition: transform 0.3s;
+	transform: translateX(-105%);
+}
+
+.underlined-link:hover::after {
+	transform: translateX(0%);
+}
+
+.active.underlined-link::after {
+	transform: translateX(0%);
+}
+
+.button-rounded {
+	@apply border border-secondary rounded-3xl py-2 px-3 leading-tighter hover:bg-secondary hover:text-primary transition-colors duration-200;
 }

@@ -315,8 +315,6 @@ SC.Widget = function (e) {
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
-(() => {
 /*!***************************!*\
   !*** ./src/track/view.js ***!
   \***************************/
@@ -345,7 +343,7 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 /* eslint-disable no-console */
-console.log("Hello World! (from track)");
+// console.log("Hello World! (from track)");
 /* eslint-enable no-console */
 
 
@@ -449,8 +447,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
-})();
-
 /******/ })()
 ;
 //# sourceMappingURL=view.js.map
