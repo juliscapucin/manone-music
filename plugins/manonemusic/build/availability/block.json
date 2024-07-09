@@ -1,0 +1,32 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "manonemusic/availability",
+  "version": "0.1.0",
+  "title": "Availability",
+  "category": "text",
+  "icon": "smiley",
+  "description": "Availability",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "date": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string",
+      "default": "hello@manonemusic.com"
+    },
+    "buttonLabel": {
+      "type": "string",
+      "default": "Get In Touch"
+    }
+  },
+  "textdomain": "availability",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./../style-index.css",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js"
+}
