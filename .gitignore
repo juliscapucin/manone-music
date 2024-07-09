@@ -12,6 +12,13 @@ node_modules
 /plugins/regenerate-thumbnails/
 /plugins/node_modules/
 
+# Themes
+/themes/twentytwentytwo/
+/themes/twentytwentythree/
+/themes/twentytwentyfour/
+/themes/fictional-university-theme/
+/themes/juli2024-wp-tailwind/
+
 # Uploads directory
 /uploads/
 
