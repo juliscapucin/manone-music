@@ -3,7 +3,6 @@ import gsap from "gsap";
 class HeaderMenu {
 	constructor() {
 		this.root;
-		this.bodyElement = null;
 		this.menuOverlay;
 		this.burgerButton;
 		this.buttonLines;
@@ -21,7 +20,6 @@ class HeaderMenu {
 
 	init() {
 		this.root = document.documentElement;
-		this.bodyElement = document.body;
 		this.menuOverlay = document.querySelector("[js-hook-menu-overlay]");
 		this.burgerButton = document.querySelector("[js-hook-burger-button]");
 		this.linkList = document.querySelector("[js-hook-link-list]");
@@ -122,6 +120,7 @@ class HeaderMenu {
 
 	load() {
 		document.addEventListener("DOMContentLoaded", () => {
+			console.log("header menu");
 			window.innerWidth < 1024
 				? this.init()
 				: this.eventListenersAdded && this.removeEventListeners();

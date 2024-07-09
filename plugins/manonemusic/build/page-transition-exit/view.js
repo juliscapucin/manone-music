@@ -6275,13 +6275,23 @@ __webpack_require__.r(__webpack_exports__);
 class PageTransitionExit {
   constructor() {
     ["load", "init", "addEvents", "removeEvents", "animateOnClick"].forEach(fn => this[fn] = this[fn].bind(this));
+    this.bodyElement = null;
+    this.headerLinks = null;
     this.load();
   }
   async init() {
-    console.log("Hello from PageTransitionExit");
+    this.bodyElement = document.querySelector("body");
+    if (!this.bodyElement) {
+      return;
+    }
+
+    // If the page is a single page, we need to animate the header links too
+    if (this.bodyElement.classList.contains("single")) {
+      this.headerLinks = document.querySelectorAll(".header-link");
+    }
     this.transitionLinks = document.querySelectorAll("[js-hook-transition-link]");
     this.pageTransitionDiv = document.querySelector("[js-hook-page-transition-exit]");
-    if (!this.pageTransitionDiv) {
+    if (!this.pageTransitionDiv || !this.transitionLinks) {
       return;
     }
     gsap__WEBPACK_IMPORTED_MODULE_0__["default"].set(this.pageTransitionDiv, {
@@ -6293,9 +6303,15 @@ class PageTransitionExit {
     this.transitionLinks.forEach(link => {
       link.addEventListener("click", this.animateOnClick);
     });
+    this.headerLinks && this.headerLinks.forEach(link => {
+      link.addEventListener("click", this.animateOnClick);
+    });
   }
   removeEvents() {
     this.transitionLinks.forEach(link => {
+      link.removeEventListener("click", this.animateOnClick);
+    });
+    this.headerLinks && this.headerLinks.forEach(link => {
       link.removeEventListener("click", this.animateOnClick);
     });
   }
