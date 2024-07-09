@@ -59,7 +59,8 @@ if (!function_exists('furtherAvailabilitySet')) {
 	}
 }
 
-$finalDate = (isset($attributes['date'])) ? furtherAvailabilitySet($attributes['date']) : furtherAvailability();
+$options = get_option('manonemusic_settings');
+$availability = $options['availability'] ? $options['availability'] : furtherAvailability();
 
 ?>
 
@@ -69,7 +70,7 @@ $finalDate = (isset($attributes['date'])) ? furtherAvailabilitySet($attributes['
 	echo '<div class=mt-8 color-secondary>';
 
 
-	echo '<span>Available ' . $finalDate . '</span>';
+	echo '<span>Available ' . $availability . '</span>';
 
 	echo '</div>';
 

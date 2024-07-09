@@ -800,6 +800,10 @@ cite{
   z-index: -10;
 }
 
+.z-10{
+  z-index: 10;
+}
+
 .z-20{
   z-index: 20;
 }
@@ -814,10 +818,6 @@ cite{
 
 .z-menuButtons{
   z-index: 100;
-}
-
-.z-10{
-  z-index: 10;
 }
 
 .float-left{
