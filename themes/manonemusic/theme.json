@@ -5,7 +5,7 @@
       "appearanceTools": true,
       "spacing": {
 			"spacingScale": {
-				"steps": 0
+				"steps": 1
 			},
 			"spacingSizes": [
 				{
