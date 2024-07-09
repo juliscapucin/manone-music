@@ -28,11 +28,6 @@ add_filter('wp_head', function () {
    <?php }
 });
 
-// add_filter('body_class', function ($classes) {
-//    return array_merge($classes, array('opacity'));
-// });
-
-
 add_filter('wp_footer', function () {
    if (wpcookie_page_transition()) { ?>
 

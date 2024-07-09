@@ -780,10 +780,6 @@ cite{
   right: 10rem;
 }
 
-.right-8{
-  right: 2rem;
-}
-
 .top-0{
   top: 0px;
 }
@@ -1007,10 +1003,6 @@ cite{
   width: 100vw;
 }
 
-.w-24{
-  width: 6rem;
-}
-
 .min-w-40{
   min-width: 10rem;
 }
@@ -1231,6 +1223,10 @@ cite{
   padding-right: 6rem;
 }
 
+.pr-4{
+  padding-right: 1rem;
+}
+
 .pr-40{
   padding-right: 10rem;
 }
@@ -1245,10 +1241,6 @@ cite{
 
 .pt-8{
   padding-top: 2rem;
-}
-
-.pr-4{
-  padding-right: 1rem;
 }
 
 .text-center{
@@ -1913,12 +1905,12 @@ a {
     height: var(--container-height-desktop);
   }
 
-  .md\:w-96{
-    width: 24rem;
-  }
-
   .md\:w-40{
     width: 10rem;
+  }
+
+  .md\:w-96{
+    width: 24rem;
   }
 
   .md\:space-y-16 > :not([hidden]) ~ :not([hidden]){

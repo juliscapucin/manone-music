@@ -21,7 +21,7 @@
  */
 
 /* eslint-disable no-console */
-console.log("Hello World! (from track)");
+// console.log("Hello World! (from track)");
 /* eslint-enable no-console */
 
 import SC from "./soundcloud-api";

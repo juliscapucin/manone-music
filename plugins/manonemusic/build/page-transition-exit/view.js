@@ -6266,125 +6266,56 @@ TweenMaxWithCSS = gsapWithCSS.core.Tween;
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-/*!*********************************!*\
-  !*** ./src/header-menu/view.js ***!
-  \*********************************/
+/*!******************************************!*\
+  !*** ./src/page-transition-exit/view.js ***!
+  \******************************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
 
-class HeaderMenu {
+class PageTransitionExit {
   constructor() {
-    this.root;
-    this.bodyElement = null;
-    this.menuOverlay;
-    this.burgerButton;
-    this.buttonLines;
-    this.buttonLinesContainer;
-    this.linkList;
-    this.isOpen;
-    this.observer;
-    this.eventListenersAdded = false;
-    this.toggleMenuFromInside = this.toggleMenuFromInside.bind(this);
-    this.toggleMenu = this.toggleMenu.bind(this);
-    this.removeEventListeners = this.removeEventListeners.bind(this);
+    ["load", "init", "addEvents", "removeEvents", "animateOnClick"].forEach(fn => this[fn] = this[fn].bind(this));
     this.load();
   }
-  init() {
-    this.root = document.documentElement;
-    this.bodyElement = document.body;
-    this.menuOverlay = document.querySelector("[js-hook-menu-overlay]");
-    this.burgerButton = document.querySelector("[js-hook-burger-button]");
-    this.linkList = document.querySelector("[js-hook-link-list]");
-    this.buttonLinesContainer = document.querySelector("[js-hook-button-lines-container]");
-    this.buttonLines = this.burgerButton.querySelectorAll("[js-hook-button-line]");
-    this.isOpen = this.root.hasAttribute("data-menu-open") ? false : true;
-    gsap__WEBPACK_IMPORTED_MODULE_0__["default"].set([this.menuOverlay, this.linkList], {
-      xPercent: 100
+  async init() {
+    console.log("Hello from PageTransitionExit");
+    this.transitionLinks = document.querySelectorAll("[js-hook-transition-link]");
+    this.pageTransitionDiv = document.querySelector("[js-hook-page-transition-exit]");
+    if (!this.pageTransitionDiv) {
+      return;
+    }
+    gsap__WEBPACK_IMPORTED_MODULE_0__["default"].set(this.pageTransitionDiv, {
+      yPercent: 100
     });
-    gsap__WEBPACK_IMPORTED_MODULE_0__["default"].set(this.buttonLines[1], {
-      y: "8px"
-    });
-    this.addEventListeners();
+    this.addEvents();
   }
-  addEventListeners() {
-    this.burgerButton.addEventListener("click", this.toggleMenuFromInside);
-    window.addEventListener("keydown", e => {
-      if (e.key === "Escape" && this.isOpen) {
-        this.toggleMenuFromInside();
+  addEvents() {
+    this.transitionLinks.forEach(link => {
+      link.addEventListener("click", this.animateOnClick);
+    });
+  }
+  removeEvents() {
+    this.transitionLinks.forEach(link => {
+      link.removeEventListener("click", this.animateOnClick);
+    });
+  }
+  animateOnClick(e) {
+    e.preventDefault();
+    const href = e.target.closest("a").getAttribute("href");
+    gsap__WEBPACK_IMPORTED_MODULE_0__["default"].to(this.pageTransitionDiv, {
+      yPercent: 0,
+      duration: 0.3,
+      ease: "linear",
+      onComplete: () => {
+        window.location = href;
       }
     });
-
-    // Create an observer instance to check for attribute changes on the root element
-    this.observer = new MutationObserver(mutationsList => {
-      for (const mutation of mutationsList) {
-        if (mutation.type === "attributes" && mutation.attributeName === "data-menu-open") {
-          if (!this.root.hasAttribute("data-menu-open")) {
-            this.toggleMenu();
-          }
-        }
-      }
-    });
-
-    // Configuration of the observer
-    const config = {
-      attributes: true // Listen for attribute changes
-    };
-
-    // Start observing the target node for configured mutations
-    this.observer.observe(this.root, config);
-    this.eventListenersAdded = true;
-  }
-  toggleMenu() {
-    this.isOpen = this.root.hasAttribute("data-menu-open") ? true : false;
-    const menuOffset = this.isOpen ? 0 : 100;
-    const lineRotation = this.isOpen ? 45 : 0;
-    const lineOffset = this.isOpen ? "0px" : "8px";
-    const linkOffset = this.isOpen ? {
-      xPercent: 0,
-      delay: 0.2
-    } : {
-      xPercent: 100
-    };
-    gsap__WEBPACK_IMPORTED_MODULE_0__["default"].to(this.menuOverlay, {
-      duration: 0.4,
-      xPercent: menuOffset
-    });
-    gsap__WEBPACK_IMPORTED_MODULE_0__["default"].to(this.linkList, {
-      duration: 0.4,
-      xPercent: linkOffset.xPercent,
-      delay: linkOffset.delay || 0,
-      ease: "power2.out"
-    });
-    gsap__WEBPACK_IMPORTED_MODULE_0__["default"].to(this.buttonLines[0], {
-      duration: 0.4,
-      rotate: lineRotation,
-      transformOrigin: "center center"
-    });
-    gsap__WEBPACK_IMPORTED_MODULE_0__["default"].to(this.buttonLines[1], {
-      duration: 0.4,
-      rotate: -lineRotation,
-      y: lineOffset,
-      transformOrigin: "center center"
-    });
-  }
-  toggleRootAttribute() {
-    this.root.hasAttribute("data-menu-open") ? this.root.removeAttribute("data-menu-open") : this.root.setAttribute("data-menu-open", "");
-  }
-  toggleMenuFromInside() {
-    this.toggleRootAttribute();
-    this.toggleMenu();
-  }
-  removeEventListeners() {
-    this.burgerButton.removeEventListener("click", this.toggleMenuFromInside);
-    this.observer.disconnect();
   }
   load() {
-    document.addEventListener("DOMContentLoaded", () => {
-      window.innerWidth < 1024 ? this.init() : this.eventListenersAdded && this.removeEventListeners();
-    });
+    document.addEventListener("DOMContentLoaded", this.init);
   }
 }
-const HeaderMenuInstance = new HeaderMenu();
+const pageTransitionExit = new PageTransitionExit();
 /******/ })()
 ;
 //# sourceMappingURL=view.js.map

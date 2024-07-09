@@ -3,6 +3,7 @@ import gsap from "gsap";
 class HeaderMenu {
 	constructor() {
 		this.root;
+		this.bodyElement = null;
 		this.menuOverlay;
 		this.burgerButton;
 		this.buttonLines;
@@ -10,14 +11,17 @@ class HeaderMenu {
 		this.linkList;
 		this.isOpen;
 		this.observer;
+		this.eventListenersAdded = false;
 		this.toggleMenuFromInside = this.toggleMenuFromInside.bind(this);
 		this.toggleMenu = this.toggleMenu.bind(this);
+		this.removeEventListeners = this.removeEventListeners.bind(this);
 
 		this.load();
 	}
 
 	init() {
 		this.root = document.documentElement;
+		this.bodyElement = document.body;
 		this.menuOverlay = document.querySelector("[js-hook-menu-overlay]");
 		this.burgerButton = document.querySelector("[js-hook-burger-button]");
 		this.linkList = document.querySelector("[js-hook-link-list]");
@@ -45,7 +49,7 @@ class HeaderMenu {
 		});
 
 		// Create an observer instance to check for attribute changes on the root element
-		this.observer = new MutationObserver((mutationsList, observer) => {
+		this.observer = new MutationObserver((mutationsList) => {
 			for (const mutation of mutationsList) {
 				if (
 					mutation.type === "attributes" &&
@@ -65,6 +69,8 @@ class HeaderMenu {
 
 		// Start observing the target node for configured mutations
 		this.observer.observe(this.root, config);
+
+		this.eventListenersAdded = true;
 	}
 
 	toggleMenu() {
@@ -116,7 +122,9 @@ class HeaderMenu {
 
 	load() {
 		document.addEventListener("DOMContentLoaded", () => {
-			window.innerWidth < 1024 ? this.init() : this.removeEventListeners();
+			window.innerWidth < 1024
+				? this.init()
+				: this.eventListenersAdded && this.removeEventListeners();
 		});
 	}
 }

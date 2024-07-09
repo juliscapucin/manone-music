@@ -44,35 +44,6 @@ class Credits {
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Credits);
 
-/***/ }),
-
-/***/ "./src/modules/MobileMenu.js":
-/*!***********************************!*\
-  !*** ./src/modules/MobileMenu.js ***!
-  \***********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-class MobileMenu {
-  constructor() {
-    this.menu = document.querySelector(".site-header__menu");
-    this.openButton = document.querySelector(".site-header__menu-trigger");
-    this.events();
-  }
-  events() {
-    if (this.openButton) this.openButton.addEventListener("click", () => this.openMenu());
-  }
-  openMenu() {
-    this.openButton.classList.toggle("fa-bars");
-    this.openButton.classList.toggle("fa-window-close");
-    this.menu.classList.toggle("site-header__menu--active");
-  }
-}
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MobileMenu);
-
 /***/ })
 
 /******/ 	});
@@ -139,16 +110,10 @@ var __webpack_exports__ = {};
   \**********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_Credits__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/Credits */ "./src/modules/Credits.js");
-/* harmony import */ var _modules_MobileMenu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/MobileMenu */ "./src/modules/MobileMenu.js");
-// Our modules / classes
 
-
-
-// Blocks
 
 // Instantiate a new object using our modules/classes
 const credits = new _modules_Credits__WEBPACK_IMPORTED_MODULE_0__["default"]();
-const mobileMenu = new _modules_MobileMenu__WEBPACK_IMPORTED_MODULE_1__["default"]();
 })();
 
 /******/ })()
