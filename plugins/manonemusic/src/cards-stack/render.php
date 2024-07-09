@@ -30,9 +30,9 @@ if ($query->have_posts()) {
       $thumbnail_url = get_the_post_thumbnail_url();
 
       $content .= <<<HTML
-      <a href="{$permalink}" class="block relative w-full aspect-square">
+      <a href="{$permalink}" class="block relative w-full aspect-square" js-hook-transition-link>
          <img class="w-full h-full object-cover" src='{$thumbnail_url}' />
-         <p>{$title}</p>
+         <p class="hidden md:block">{$title}</p>
       </a>
       HTML;
    }
@@ -40,7 +40,7 @@ if ($query->have_posts()) {
 };
 
 ?>
-<div class="cards-stack fixed top-16 bottom-0 right-8 w-40 overflow-y-scroll overscroll-contain pr-8 pb-8 space-y-16">
+<div class="cards-stack fixed top-32 bottom-0 right-0 md:right-8 w-16 sm:w-24 md:w-40 overflow-y-scroll overscroll-contain pr-4 md:pr-8 pb-8 space-y-8 md:space-y-16">
    <?php
    echo $content;
    ?>

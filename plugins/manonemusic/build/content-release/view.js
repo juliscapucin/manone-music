@@ -1,1 +1,0 @@
-console.log("Hello World! (from project-card-project-card block)");

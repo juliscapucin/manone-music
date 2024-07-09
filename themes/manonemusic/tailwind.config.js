@@ -29,13 +29,13 @@ module.exports = {
 		fontSize: {
 			displayLarge: "147px",
 			displayMedium: "103px",
-			displaySmall: "72px",
+			displaySmall: "64px",
 			headlineLarge: "81px",
 			headlineMedium: "72px",
 			headlineSmall: "64px",
-			titleLarge: "22px",
-			titleMedium: "20px",
-			titleSmall: "18px",
+			titleLarge: "20px",
+			titleMedium: "18px",
+			titleSmall: "16px",
 			bodyLarge: "18px",
 			bodyMedium: "16px",
 			bodySmall: "14px",
@@ -52,6 +52,9 @@ module.exports = {
 			},
 			lineHeight: {
 				tighter: "0.85",
+			},
+			zIndex: {
+				menuButtons: "100",
 			},
 		},
 	},

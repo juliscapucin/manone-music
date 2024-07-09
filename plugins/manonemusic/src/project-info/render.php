@@ -20,14 +20,15 @@ $post_id = get_the_ID();
 // Retrieve the ACF 'release_date' field
 $release_date = get_field('release_date', $post_id);
 
-// Function to format the release date
-function format_release_date($date_string)
-{
-	$date = DateTime::createFromFormat('d/m/Y', $date_string);
-	if ($date) {
-		return $date->format('F Y');
+if (!function_exists('furtherAvailabilitySet')) {
+	function format_release_date($date_string)
+	{
+		$date = DateTime::createFromFormat('d/m/Y', $date_string);
+		if ($date) {
+			return $date->format('F Y');
+		}
+		return $date_string; // return the original string if parsing fails
 	}
-	return $date_string; // return the original string if parsing fails
 }
 
 ?>

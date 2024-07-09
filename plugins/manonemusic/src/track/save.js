@@ -1,10 +1,6 @@
-import {
-	useBlockProps,
-	useInnerBlocksProps,
-	RichText,
-} from "@wordpress/block-editor";
+import { useBlockProps } from "@wordpress/block-editor";
 
-export default function Save({ attributes }) {
+export default function Save() {
 	const blockPropsSave = useBlockProps.save();
 
 	return <div {...blockPropsSave} />;

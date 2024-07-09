@@ -7,6 +7,7 @@ class HorizontalScroll {
 	constructor() {
 		this.handleHeaderLinks = this.handleHeaderLinks.bind(this)
 		this.handleScrollTo = this.handleScrollTo.bind(this)
+		this.handleClickOnMobile = this.handleClickOnMobile.bind(this)
 		this.panelsInnerContainer
 		this.panelsOuterContainer
 		this.headerLinks
@@ -14,6 +15,8 @@ class HorizontalScroll {
 		this.tween
 		this.pathname
 		this.scrollTarget
+		this.isMobile = false
+		this.root
 		this.panelUI = [
 			{ section: "home", x: 0, splitHeading: null, theme: "dark" },
 			{
@@ -74,8 +77,17 @@ class HorizontalScroll {
 		this.headerLinks = document.querySelectorAll("header a")
 		this.panels = gsap.utils.toArray("#panels-inner-container .panel")
 		this.pathname = window.location.pathname
+		this.root = document.documentElement
 
 		const headings = document.querySelectorAll(".home-heading")
+
+		if (!this.panelsInnerContainer || !this.panelsOuterContainer) return
+
+		if (this.isMobile) {
+			this.addMobileEvents()
+			this.handleMobileActivePanel()
+			return
+		}
 
 		this.panelUI.forEach((panel, index) => {
 			panel.x = this.panels[index].offsetLeft
@@ -96,10 +108,55 @@ class HorizontalScroll {
 	}
 
 	addEvents() {
-		if (!this.panelsInnerContainer || !this.panelsOuterContainer) return
-
 		this.headerLinks.forEach((anchor) => {
 			anchor.addEventListener("click", this.handleHeaderLinks)
+		})
+	}
+
+	addMobileEvents() {
+		this.headerLinks.forEach((anchor) => {
+			anchor.addEventListener("click", this.handleClickOnMobile)
+		})
+	}
+
+	handleClickOnMobile(e) {
+		e.preventDefault()
+		if (this.root.hasAttribute("data-menu-open")) {
+			this.root.removeAttribute("data-menu-open")
+			const target = e.target.getAttribute("href").replace("/", "")
+			gsap.to(window, {
+				scrollTo: `#${target}`,
+				duration: 0.3,
+				onComplete: () => {
+					this.pathname = target
+					this.handlePathname()
+				},
+			})
+		}
+	}
+
+	handleMobileActivePanel() {
+		this.panels.forEach((panel, index) => {
+			gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, SplitText)
+
+			// SPLIT TEXT ANIMATION
+			ScrollTrigger.create({
+				trigger: panel,
+				containerAnimation: this.tween,
+				// markers: true,
+				start: () => "top center",
+				end: "bottom top",
+				onEnter: () => {
+					this.activePanel = panel
+					this.pathname = this.panelUI[index].section
+					this.handlePathname()
+				},
+				onEnterBack: () => {
+					this.activePanel = panel
+					this.pathname = this.panelUI[index].section
+					this.handlePathname()
+				},
+			})
 		})
 	}
 
@@ -191,8 +248,6 @@ class HorizontalScroll {
 				anchor.classList.add("active")
 			}
 		})
-
-		// this.handleBackgroundColor()
 	}
 
 	handleActivePanel() {
@@ -335,6 +390,9 @@ class HorizontalScroll {
 			this.tween.kill()
 		}
 		ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+
+		this.isMobile = true
+		this.init()
 	}
 }
 

@@ -1,0 +1,15 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "manonemusic/page-transition-enter",
+	"version": "0.1.0",
+	"title": "Page Transition Enter",
+	"category": "text",
+	"icon": "smiley",
+	"description": "Page Transition Enter",
+	"textdomain": "page-transition-enter",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./../style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}
