@@ -21,5 +21,5 @@
  */
 
 /* eslint-disable no-console */
-console.log("Hello World! (from container block)");
+console.log("Hello World! (from about-image block)");
 /* eslint-enable no-console */
