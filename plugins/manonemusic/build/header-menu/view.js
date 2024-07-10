@@ -6378,7 +6378,6 @@ class HeaderMenu {
   }
   load() {
     document.addEventListener("DOMContentLoaded", () => {
-      console.log("header menu");
       window.innerWidth < 1024 ? this.init() : this.eventListenersAdded && this.removeEventListeners();
     });
   }
