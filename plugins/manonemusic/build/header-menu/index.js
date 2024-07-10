@@ -36,29 +36,16 @@ function Edit({
   attributes,
   setAttributes
 }) {
-  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)({
-    className: "mt-8",
-    style: {
-      width: "90%"
-    }
-  });
+  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)();
   const {
     linkList
   } = attributes;
-  const updateLinkLabel = (index, newLabel) => {
+  const updateLink = (index, newLabel) => {
+    const newSlug = newLabel.replace(/\s+/g, "-").toLowerCase();
     const newLinkList = [...linkList];
     newLinkList[index] = {
       ...newLinkList[index],
-      label: newLabel
-    };
-    setAttributes({
-      linkList: newLinkList
-    });
-  };
-  const updateLinkSlug = (index, newSlug) => {
-    const newLinkList = [...linkList];
-    newLinkList[index] = {
-      ...newLinkList[index],
+      label: newLabel,
       slug: newSlug
     };
     setAttributes({
@@ -72,65 +59,48 @@ function Edit({
       linkList: newLinkList
     });
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
     ...blockProps,
-    children: [linkList.map((link, index) => {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        style: index > 0 ? {
-          marginTop: "1rem"
-        } : {},
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Flex, {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.FlexBlock, {
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
-              label: "Link label:",
-              autoFocus: link.label == undefined,
-              value: link.label,
-              onChange: newLabel => updateLinkLabel(index, newLabel),
-              style: {
-                color: "var(--color-secondary)",
-                backgroundColor: "var(--color-primary)"
-              }
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.FlexBlock, {
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
-              label: "Link slug:",
-              value: link.slug,
-              onChange: newSlug => updateLinkSlug(index, newSlug),
-              style: {
-                color: "var(--color-secondary)",
-                backgroundColor: "var(--color-primary)"
-              }
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.FlexItem, {
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
-              onClick: () => removeLink(index),
-              variant: "link",
-              style: {
-                color: "var(--color-secondary)"
-              },
-              children: "Remove Link"
-            })
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "flex items-start justify-end gap-4",
+      children: [linkList.map((link, index) => {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+            autoFocus: link.label == undefined,
+            value: link.label,
+            onChange: newLabel => updateLink(index, newLabel),
+            style: {
+              color: "var(--color-secondary)",
+              backgroundColor: "var(--color-primary)"
+            }
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+            onClick: () => removeLink(index),
+            variant: "link",
+            style: {
+              color: "var(--color-secondary)"
+            },
+            children: "Remove Link"
           })]
-        })
-      }, `linkInput-${index}`);
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
-      onClick: () => {
-        setAttributes({
-          linkList: linkList.concat({
-            title: undefined,
-            url: ""
-          })
-        });
-      },
-      variant: "primary",
-      icon: "plus-alt",
-      style: {
-        margin: "1.5rem auto 0 auto",
-        display: "flex",
-        padding: "0 5rem"
-      },
-      children: "Add New Link"
-    })]
+        }, `linkInput-${index}`);
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+        onClick: () => {
+          setAttributes({
+            linkList: linkList.concat({
+              title: undefined,
+              url: ""
+            })
+          });
+        },
+        variant: "primary",
+        icon: "plus-alt",
+        style: {
+          margin: "0 auto 0 auto",
+          display: "flex",
+          padding: "1rem"
+        },
+        children: "Add Link"
+      }), " "]
+    })
   });
 }
 
