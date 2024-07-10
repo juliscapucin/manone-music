@@ -712,6 +712,10 @@ cite{
   visibility: visible;
 }
 
+.collapse{
+  visibility: collapse;
+}
+
 .static{
   position: static;
 }
@@ -726,6 +730,10 @@ cite{
 
 .relative{
   position: relative;
+}
+
+.sticky{
+  position: sticky;
 }
 
 .inset-0{
@@ -872,6 +880,10 @@ cite{
   display: contents;
 }
 
+.list-item{
+  display: list-item;
+}
+
 .hidden{
   display: none;
 }
@@ -897,6 +909,10 @@ cite{
   height: 100%;
 }
 
+.h-0{
+  height: 0px;
+}
+
 .h-1{
   height: 0.25rem;
 }
@@ -907,6 +923,14 @@ cite{
 
 .h-16{
   height: 4rem;
+}
+
+.h-4{
+  height: 1rem;
+}
+
+.h-6{
+  height: 1.5rem;
 }
 
 .h-8{
@@ -924,14 +948,6 @@ cite{
 
 .h-full{
   height: 100%;
-}
-
-.h-0{
-  height: 0px;
-}
-
-.h-6{
-  height: 1.5rem;
 }
 
 .w-1\/2{
@@ -991,6 +1007,10 @@ cite{
   flex: 1 1 0%;
 }
 
+.flex-grow{
+  flex-grow: 1;
+}
+
 .basis-1\/2{
   flex-basis: 50%;
 }
@@ -1011,8 +1031,17 @@ cite{
   resize: both;
 }
 
+.columns-2{
+  -moz-columns: 2;
+       columns: 2;
+}
+
 .flex-col{
   flex-direction: column;
+}
+
+.flex-wrap{
+  flex-wrap: wrap;
 }
 
 .items-center{
@@ -1085,6 +1114,10 @@ cite{
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.rounded{
+  border-radius: 0.25rem;
 }
 
 .rounded-3xl{
@@ -1281,6 +1314,10 @@ cite{
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.outline{
+  outline-style: solid;
+}
+
 .grayscale{
   --tw-grayscale: grayscale(100%);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
@@ -1322,6 +1359,10 @@ cite{
 
 .duration-300{
   transition-duration: 300ms;
+}
+
+.ease-in{
+  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
 }
 
 /**
@@ -1456,7 +1497,7 @@ a {
   }
 }
 
-.block-editor-block-list__block{
+.editor-styles-wrapper{
   padding-left: 4rem;
   padding-right: 4rem;
 }

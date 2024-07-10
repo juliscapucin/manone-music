@@ -7,9 +7,13 @@
  */
 
 // Get the blocks for the current post
-$post_blocks = parse_blocks(get_post()->post_content);
+$post_blocks = isset(get_post()->post_content) && !empty(get_post()->post_content) ? parse_blocks(get_post()->post_content) : null;
 $project_info_block = '';
 $embed_block = '';
+
+if (!isset($post_blocks) || empty($post_blocks)) {
+   return;
+}
 
 $tracklist = get_post_meta(get_the_ID(), 'repeatable_fields', true);
 

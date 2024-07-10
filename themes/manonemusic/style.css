@@ -187,7 +187,7 @@ a {
 	@apply text-displaySmall lg:text-displayMedium;
 }
 
-.block-editor-block-list__block {
+.editor-styles-wrapper {
 	@apply px-16;
 }
 
