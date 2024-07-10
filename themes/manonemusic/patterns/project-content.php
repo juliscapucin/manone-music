@@ -7,4 +7,6 @@
  */
 ?>
 
+
 <!-- wp:manonemusic/project-info /-->
+<!-- wp:embed {"providerNameSlug":"vimeo","responsive":true} /-->

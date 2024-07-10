@@ -183,6 +183,14 @@ a {
 	@apply mt-0 block;
 }
 
+.edit-post-visual-editor__post-title-wrapper h1 {
+	@apply text-displaySmall lg:text-displayMedium;
+}
+
+.block-editor-block-list__block {
+	@apply px-16;
+}
+
 /* .block-editor-iframe__body {
 	overflow-y: hidden;
 } */

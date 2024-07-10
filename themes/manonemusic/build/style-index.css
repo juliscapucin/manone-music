@@ -1512,6 +1512,21 @@ a {
   display: block;
 }
 
+.edit-post-visual-editor__post-title-wrapper h1{
+  font-size: 64px;
+}
+
+@media (min-width: 1024px){
+  .edit-post-visual-editor__post-title-wrapper h1{
+    font-size: 103px;
+  }
+}
+
+.block-editor-block-list__block{
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
 /* .block-editor-iframe__body {
 	overflow-y: hidden;
 } */
@@ -2029,9 +2044,4 @@ a {
   .xl\:text-titleLarge{
     font-size: 20px;
   }
-}
-
-.\[\&\>img\]\:object-cover>img{
-  -o-object-fit: cover;
-     object-fit: cover;
 }
