@@ -990,6 +990,10 @@ cite{
   width: 24rem;
 }
 
+.w-\[40\%\]{
+  width: 40%;
+}
+
 .w-fit{
   width: -moz-fit-content;
   width: fit-content;
@@ -1001,18 +1005,6 @@ cite{
 
 .w-screen{
   width: 100vw;
-}
-
-.w-\[300px\]{
-  width: 300px;
-}
-
-.w-\[40vw\]{
-  width: 40vw;
-}
-
-.w-\[40\%\]{
-  width: 40%;
 }
 
 .min-w-40{
@@ -1029,18 +1021,6 @@ cite{
 
 .max-w-wide{
   max-width: 1600px;
-}
-
-.max-w-\[50\%\]{
-  max-width: 50%;
-}
-
-.max-w-\[50vw\]{
-  max-width: 50vw;
-}
-
-.max-w-\[30vw\]{
-  max-width: 30vw;
 }
 
 .flex-1{
@@ -1887,6 +1867,13 @@ a {
   color: rgb(var(--color-primary) / var(--tw-text-opacity));
 }
 
+.contain-image img{
+  height: 100%;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
 .hover\:bg-secondary:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(var(--color-secondary) / var(--tw-bg-opacity));
@@ -1939,10 +1926,6 @@ a {
     display: block;
   }
 
-  .md\:hidden{
-    display: none;
-  }
-
   .md\:h-\[--container-height-desktop\]{
     height: var(--container-height-desktop);
   }
@@ -1953,6 +1936,10 @@ a {
 
   .md\:w-96{
     width: 24rem;
+  }
+
+  .md\:basis-1\/2{
+    flex-basis: 50%;
   }
 
   .md\:space-y-16 > :not([hidden]) ~ :not([hidden]){
@@ -1990,10 +1977,6 @@ a {
 
   .lg\:hidden{
     display: none;
-  }
-
-  .lg\:w-full{
-    width: 100%;
   }
 
   .lg\:basis-1\/2{
@@ -2046,4 +2029,9 @@ a {
   .xl\:text-titleLarge{
     font-size: 20px;
   }
+}
+
+.\[\&\>img\]\:object-cover>img{
+  -o-object-fit: cover;
+     object-fit: cover;
 }

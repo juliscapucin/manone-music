@@ -5,13 +5,35 @@
  * Slug: manonemusic/release-template
  * Categories: Post
  */
+
+// Get the blocks for the current post
+$post_blocks = parse_blocks(get_post()->post_content);
+$project_info_block = '';
+$embed_block = '';
+
+$tracklist = get_post_meta(get_the_ID(), 'repeatable_fields', true);
+
+// Loop through the blocks to find the custom blocks and store them
+foreach ($post_blocks as $block) {
+   if ($block['blockName'] === 'manonemusic/project-info') {
+      $project_info_block = render_block($block);
+   }
+   if ($block['blockName'] === 'core/embed') {
+      $embed_block = render_block($block);
+   }
+}
+?>
 ?>
 
 <!-- wp:group {"tagName":"main","className":"is-style-group-page-container","layout":{"type":"constrained"}} -->
-<main class="wp-block-group is-style-group-page-container"><!-- wp:columns -->
-   <div class="wp-block-columns"><!-- wp:column {"width":"85%","style":{"spacing":{"padding":{"right":"var:preset|spacing|30"}}}} -->
-      <div class="wp-block-column" style="padding-right:var(--wp--preset--spacing--30);flex-basis:85%"><!-- wp:group {"layout":{"type":"constrained"}} -->
-         <div class="wp-block-group"><!-- wp:post-title {"level":1,"className":"is-style-post-title-mb text-headlineLarge"} /-->
+<main class="wp-block-group is-style-group-page-container">
+   <!-- wp:columns -->
+   <div class="wp-block-columns">
+      <!-- wp:column {"width":"85%","style":{"spacing":{"padding":{"right":"var:preset|spacing|30"}}}} -->
+      <div class="wp-block-column" style="padding-right:var(--wp--preset--spacing--30);flex-basis:85%">
+         <!-- wp:group {"layout":{"type":"constrained"}} -->
+         <div class="wp-block-group">
+            <!-- wp:post-title {"level":1,"className":"is-style-post-title-mb text-headlineLarge"} /-->
 
             <!-- wp:columns {"verticalAlignment":"top","className":"mt-8"} -->
             <div class="wp-block-columns are-vertically-aligned-top mt-8">
@@ -23,27 +45,16 @@
 
                <!-- wp:column {"verticalAlignment":"top","width":"66.66%"} -->
                <div class="wp-block-column is-vertically-aligned-top" style="flex-basis:66.66%">
-
                   <?php
-                  $post_blocks = parse_blocks(get_post()->post_content);
-                  $tracklist = get_post_meta(get_the_ID(), 'repeatable_fields', true);
 
-                  foreach ($post_blocks as $block) {
-                     if ($block['blockName'] === 'manonemusic/project-info') {
-                        echo render_block($block);
-                     }
-                  }
+                  echo $project_info_block;
 
                   if ($tracklist) {
                      $jsonTracks = wp_json_encode($tracklist);
-
                      echo '<!-- wp:manonemusic/track {"tracklist": ' . $jsonTracks . '} /-->';
                   }
-
                   ?>
-
                </div>
-
                <!-- /wp:column -->
             </div>
             <!-- /wp:columns -->
