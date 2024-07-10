@@ -59,7 +59,8 @@ if (!function_exists('furtherAvailabilitySet')) {
 	}
 }
 
-$finalDate = (isset($attributes['date'])) ? furtherAvailabilitySet($attributes['date']) : furtherAvailability();
+$options = get_option('manonemusic_settings');
+$availability = isset($options['availability']) && !empty($options['availability']) ? $options['availability'] : furtherAvailability();
 
 ?>
 
@@ -69,11 +70,11 @@ $finalDate = (isset($attributes['date'])) ? furtherAvailabilitySet($attributes['
 	echo '<div class=mt-8 color-secondary>';
 
 
-	echo '<span>Available ' . $finalDate . '</span>';
+	echo '<span>Available ' . $availability . '</span>';
 
 	echo '</div>';
 
-	echo '<a class="block bg-primary uppercase border border-secondary rounded-3xl mt-8 py-2 px-3 leading-tighter w-fit text-center hover:bg-secondary hover:text-primary transition-colors duration-200" href="' . esc_html($attributes['email']) . '" target="_blank" rel="noopener noreferrer">' . esc_html($attributes['buttonLabel']) . '</a>';
+	echo '<a class="block bg-primary uppercase border border-secondary rounded-3xl mt-8 py-2 px-3 leading-tighter w-fit text-center hover:bg-secondary hover:text-primary transition-colors duration-200" href="mailto:' . esc_html($attributes['email']) . '" target="_blank" rel="noopener noreferrer">' . esc_html($attributes['buttonLabel']) . '</a>';
 
 	?>
 </div>
