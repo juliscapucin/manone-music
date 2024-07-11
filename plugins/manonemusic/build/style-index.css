@@ -624,10 +624,6 @@ video {
   bottom: 2rem;
 }
 
-.left-0{
-  left: 0px;
-}
-
 .right-0{
   right: 0px;
 }
@@ -648,24 +644,16 @@ video {
   top: 0px;
 }
 
+.top-10{
+  top: 2.5rem;
+}
+
 .top-2{
   top: 0.5rem;
 }
 
 .top-32{
   top: 8rem;
-}
-
-.top-16{
-  top: 4rem;
-}
-
-.top-8{
-  top: 2rem;
-}
-
-.top-10{
-  top: 2.5rem;
 }
 
 .-z-10{
@@ -733,14 +721,6 @@ video {
   margin-top: 2rem;
 }
 
-.mr-0{
-  margin-right: 0px;
-}
-
-.ml-auto{
-  margin-left: auto;
-}
-
 .block{
   display: block;
 }
@@ -785,10 +765,6 @@ video {
   height: 4rem;
 }
 
-.h-4{
-  height: 1rem;
-}
-
 .h-64{
   height: 16rem;
 }
@@ -805,13 +781,13 @@ video {
   height: 1px;
 }
 
-.h-full{
-  height: 100%;
-}
-
 .h-fit{
   height: -moz-fit-content;
   height: fit-content;
+}
+
+.h-full{
+  height: 100%;
 }
 
 .w-1\/2{
@@ -842,8 +818,8 @@ video {
   width: 24rem;
 }
 
-.w-\[40\%\]{
-  width: 40%;
+.w-\[90\%\]{
+  width: 90%;
 }
 
 .w-fit{
@@ -857,10 +833,6 @@ video {
 
 .w-screen{
   width: 100vw;
-}
-
-.w-\[90\%\]{
-  width: 90%;
 }
 
 .min-w-40{
@@ -1222,6 +1194,10 @@ body {
     right: 2rem;
   }
 
+  .md\:mt-0{
+    margin-top: 0px;
+  }
+
   .md\:block{
     display: block;
   }
@@ -1230,10 +1206,19 @@ body {
     width: 10rem;
   }
 
+  .md\:w-fit{
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+
   .md\:space-y-16 > :not([hidden]) ~ :not([hidden]){
     --tw-space-y-reverse: 0;
     margin-top: calc(4rem * calc(1 - var(--tw-space-y-reverse)));
     margin-bottom: calc(4rem * var(--tw-space-y-reverse));
+  }
+
+  .md\:overflow-visible{
+    overflow: visible;
   }
 
   .md\:pr-8{
@@ -1250,12 +1235,13 @@ body {
     position: relative;
   }
 
-  .lg\:flex{
-    display: flex;
-  }
-
   .lg\:hidden{
     display: none;
+  }
+
+  .lg\:w-fit{
+    width: -moz-fit-content;
+    width: fit-content;
   }
 
   .lg\:flex-row{
@@ -1272,6 +1258,14 @@ body {
 
   .lg\:overflow-visible{
     overflow: visible;
+  }
+
+  .lg\:overflow-x-visible{
+    overflow-x: visible;
+  }
+
+  .lg\:pr-64{
+    padding-right: 16rem;
   }
 
   .lg\:text-bodyMedium{

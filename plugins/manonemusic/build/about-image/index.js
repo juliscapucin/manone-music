@@ -175,7 +175,7 @@ module.exports = window["wp"]["components"];
   \************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"manonemusic/about-image","version":"0.1.0","title":"About Image","category":"design","icon":"smiley","description":"About image block","example":{},"supports":{"html":false,"spacing":{"padding":true,"margin":true}},"attributes":{"imgId":{"type":"number","default":75},"imgUrl":{"type":"string","default":"https://manonemusic.juliscapucin.com/manonemusic-about/"},"imgAlt":{"type":"string"}},"textdomain":"about-image","editorScript":"file:./index.js","render":"file:./render.php"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"manonemusic/about-image","version":"0.1.0","title":"About Image","category":"design","icon":"smiley","description":"About image block","example":{},"supports":{"html":false,"spacing":{"padding":true,"margin":true}},"attributes":{"imgId":{"type":"number","default":75},"imgUrl":{"type":"string","default":"https://manonemusic.juliscapucin.com/manonemusic-about/"},"imgAlt":{"type":"string"},"screenSize":{"type":"string","default":"desktop"}},"textdomain":"about-image","editorScript":"file:./index.js","render":"file:./render.php"}');
 
 /***/ })
 

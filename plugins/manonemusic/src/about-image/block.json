@@ -26,6 +26,10 @@
 		},
 		"imgAlt": {
 			"type": "string"
+		},
+		"screenSize": {
+			"type": "string",
+			"default": "desktop"
 		}
 	},
 	"textdomain": "about-image",

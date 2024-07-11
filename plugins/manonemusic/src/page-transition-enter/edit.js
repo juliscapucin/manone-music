@@ -11,7 +11,7 @@ import "./style.css";
 
 export default function Edit() {
 	const blockProps = useBlockProps({
-		className: "fixed inset-0 bg-secondary z-10",
+		className: "hidden",
 	});
 	return <div {...blockProps}></div>;
 }

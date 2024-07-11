@@ -752,20 +752,12 @@ cite{
   inset: 0px;
 }
 
-.-top-\[--header-height\]{
-  top: calc(var(--header-height) * -1);
-}
-
 .bottom-0{
   bottom: 0px;
 }
 
 .bottom-8{
   bottom: 2rem;
-}
-
-.left-0{
-  left: 0px;
 }
 
 .right-0{
@@ -794,10 +786,6 @@ cite{
 
 .isolate{
   isolation: isolate;
-}
-
-.-z-10{
-  z-index: -10;
 }
 
 .z-10{
@@ -916,11 +904,6 @@ cite{
   aspect-ratio: 16 / 9;
 }
 
-.size-full{
-  width: 100%;
-  height: 100%;
-}
-
 .h-0{
   height: 0px;
 }
@@ -1025,10 +1008,6 @@ cite{
 
 .basis-1\/2{
   flex-basis: 50%;
-}
-
-.basis-1\/5{
-  flex-basis: 20%;
 }
 
 .basis-2\/5{
@@ -1604,9 +1583,11 @@ a {
 
 .is-style-group-section{
   position: relative;
-  height: var(--container-height-desktop);
+  height: -moz-fit-content;
+  height: fit-content;
   width: 100vw;
   min-width: 100vw;
+  overflow-x: clip;
   padding-left: 1rem;
   padding-right: 1rem;
   padding-top: var(--header-height);
@@ -1622,8 +1603,10 @@ a {
 
 @media (min-width: 1024px){
   .is-style-group-section{
+    height: var(--container-height-desktop);
     width: -moz-fit-content;
     width: fit-content;
+    padding-right: 10rem;
   }
 
   .is-style-group-section:last-child{
@@ -1644,7 +1627,6 @@ a {
   position: relative;
   width: 100%;
   max-width: 1600px;
-  overflow: clip;
 }
 
 /* PAGE CONTAINER */
@@ -1744,15 +1726,14 @@ a {
 }
 
 .is-style-heading-display{
-  margin-top: 2rem;
+  margin-top: 1rem;
   margin-bottom: 2rem;
-  display: block;
   font-size: 64px;
   line-height: 1;
   letter-spacing: -5px;
 }
 
-@media (min-width: 1024px){
+@media (min-width: 768px){
   .is-style-heading-display{
     font-size: 103px;
   }
@@ -1773,7 +1754,7 @@ a {
   letter-spacing: -2px;
 }
 
-@media (min-width: 1024px){
+@media (min-width: 768px){
   .is-style-heading-headline{
     font-size: 72px;
   }
@@ -1908,10 +1889,6 @@ a {
 }
 
 @media (min-width: 768px){
-  .md\:absolute{
-    position: absolute;
-  }
-
   .md\:right-16{
     right: 4rem;
   }
@@ -1928,16 +1905,16 @@ a {
     display: block;
   }
 
-  .md\:h-\[--container-height-desktop\]{
-    height: var(--container-height-desktop);
+  .md\:hidden{
+    display: none;
+  }
+
+  .md\:h-16{
+    height: 4rem;
   }
 
   .md\:w-40{
     width: 10rem;
-  }
-
-  .md\:w-96{
-    width: 24rem;
   }
 
   .md\:basis-1\/2{
@@ -1981,6 +1958,11 @@ a {
     display: none;
   }
 
+  .lg\:w-fit{
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+
   .lg\:basis-1\/2{
     flex-basis: 50%;
   }
@@ -2001,8 +1983,12 @@ a {
     gap: 8rem;
   }
 
-  .lg\:overflow-visible{
-    overflow: visible;
+  .lg\:overflow-x-visible{
+    overflow-x: visible;
+  }
+
+  .lg\:pr-64{
+    padding-right: 16rem;
   }
 
   .lg\:text-bodyMedium{

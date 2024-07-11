@@ -234,12 +234,12 @@ a {
 /* HOME SECTIONS */
 /* panel */
 .is-style-group-section {
-	@apply relative h-[--container-height-desktop] pt-[--header-height] min-w-screen w-screen xl:min-w-[120vw] lg:w-fit px-4 md:px-16 xl:pr-64 lg:last:pr-0 pb-16;
+	@apply relative h-fit lg:h-[--container-height-desktop] pt-[--header-height] min-w-screen w-screen lg:w-fit xl:min-w-[120vw] px-4 md:px-16 lg:pr-40 xl:pr-64 lg:last:pr-0 pb-16 overflow-x-clip;
 }
 
 /* inner panel */
 .is-style-max-width {
-	@apply relative w-full max-w-wide overflow-clip;
+	@apply relative w-full max-w-wide;
 }
 
 /* PAGE CONTAINER */
@@ -275,11 +275,11 @@ a {
 }
 
 .is-style-heading-display {
-	@apply block text-displaySmall lg:text-displayMedium xl:text-displayLarge tracking-[-5px] leading-none mt-8 mb-8;
+	@apply text-displaySmall md:text-displayMedium xl:text-displayLarge tracking-[-5px] leading-none mt-4 mb-8;
 }
 
 .is-style-heading-headline {
-	@apply block text-headlineSmall lg:text-headlineMedium xl:text-headlineLarge tracking-[-2px] leading-none mt-8 mb-8;
+	@apply block text-headlineSmall md:text-headlineMedium xl:text-headlineLarge tracking-[-2px] leading-none mt-8 mb-8;
 }
 
 /* PARAGRAPH */

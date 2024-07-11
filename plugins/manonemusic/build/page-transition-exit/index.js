@@ -30,7 +30,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function Edit() {
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)({
-    className: "fixed h-4 left-0 top-0 right-0 bg-secondary z-10"
+    className: "hidden"
   });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
     ...blockProps
