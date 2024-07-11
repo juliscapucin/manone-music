@@ -15,7 +15,7 @@ import {
 
 export default function Edit({ attributes, setAttributes }) {
 	const blockProps = useBlockProps({
-		className: "absolute top-0 right-0 w-64 h-fit bg-faded-30",
+		className: "absolute top-0 right-0 bottom-8 w-[90%] h-fit bg-faded-30",
 	});
 	const { imgId, imgUrl, imgAlt } = attributes;
 
@@ -64,7 +64,7 @@ export default function Edit({ attributes, setAttributes }) {
 
 			<div {...blockProps}>
 				<div className="relative w-full h-full bg-faded-10">
-					<div className="contain-image hidden lg:flex justify-end w-full overflow-clip z-10">
+					<div className="contain-image flex justify-end w-full overflow-clip z-10">
 						<img
 							src={imgUrl}
 							className="w-full h-full object-cover"

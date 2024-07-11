@@ -28,7 +28,7 @@ function Edit({
   setAttributes
 }) {
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)({
-    className: "absolute top-0 right-0 w-64 h-fit bg-faded-30"
+    className: "absolute top-0 right-0 bottom-8 w-[90%] h-fit bg-faded-30"
   });
   const {
     imgId,
@@ -84,7 +84,7 @@ function Edit({
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         className: "relative w-full h-full bg-faded-10",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          className: "contain-image hidden lg:flex justify-end w-full overflow-clip z-10",
+          className: "contain-image flex justify-end w-full overflow-clip z-10",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
             src: imgUrl,
             className: "w-full h-full object-cover",
@@ -175,7 +175,7 @@ module.exports = window["wp"]["components"];
   \************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"manonemusic/about-image","version":"0.1.0","title":"About Image","category":"design","icon":"smiley","description":"About image block","example":{},"supports":{"html":false,"spacing":{"padding":true,"margin":true}},"attributes":{"imgId":{"type":"number","default":75},"imgUrl":{"type":"string","default":"https://manonemusic.juliscapucin.com/manonemusic-about/"},"imgAlt":{"type":"string"},"screenSize":{"type":"string","default":"desktop"}},"textdomain":"about-image","editorScript":"file:./index.js","render":"file:./render.php"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"manonemusic/about-image","version":"0.1.0","title":"About Image","category":"design","icon":"smiley","description":"About image block","example":{},"supports":{"html":false,"spacing":{"padding":true,"margin":true}},"attributes":{"imgId":{"type":"number","default":75},"imgUrl":{"type":"string","default":"https://manonemusic.juliscapucin.com/manonemusic-about/"},"imgAlt":{"type":"string"}},"textdomain":"about-image","editorScript":"file:./index.js","render":"file:./render.php"}');
 
 /***/ })
 
