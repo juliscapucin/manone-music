@@ -64,10 +64,10 @@ $availability = isset($options['availability']) && !empty($options['availability
 
 ?>
 
-<div class="w-full space-y-2 ml-2 mb-16">
+<div class="w-full space-y-2">
 	<?php
 
-	echo '<div class=mt-8 color-secondary>';
+	echo '<div class="color-secondary">';
 
 
 	echo '<span>Available ' . $availability . '</span>';

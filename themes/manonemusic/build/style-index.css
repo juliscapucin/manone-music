@@ -832,6 +832,10 @@ cite{
   margin-left: 1rem;
 }
 
+.mt-0{
+  margin-top: 0px;
+}
+
 .mt-16{
   margin-top: 4rem;
 }
@@ -936,6 +940,10 @@ cite{
   height: 1px;
 }
 
+.h-\[40vh\]{
+  height: 40vh;
+}
+
 .h-fit{
   height: -moz-fit-content;
   height: fit-content;
@@ -943,6 +951,26 @@ cite{
 
 .h-full{
   height: 100%;
+}
+
+.h-\[50vh\]{
+  height: 50vh;
+}
+
+.h-screen{
+  height: 100vh;
+}
+
+.h-\[--container-height-mobile\]{
+  height: var(--container-height-mobile);
+}
+
+.h-\[--container-height-desktop\]{
+  height: var(--container-height-desktop);
+}
+
+.min-h-full{
+  min-height: 100%;
 }
 
 .w-1\/2{
@@ -1156,6 +1184,11 @@ cite{
 .bg-secondary{
   --tw-bg-opacity: 1;
   background-color: rgb(var(--color-secondary) / var(--tw-bg-opacity));
+}
+
+.bg-red{
+  --tw-bg-opacity: 1;
+  background-color: rgb(204 0 0 / var(--tw-bg-opacity));
 }
 
 .object-contain{
@@ -1606,7 +1639,6 @@ a {
     height: var(--container-height-desktop);
     width: -moz-fit-content;
     width: fit-content;
-    padding-right: 10rem;
   }
 
   .is-style-group-section:last-child{
@@ -1618,6 +1650,10 @@ a {
   .is-style-group-section{
     min-width: 120vw;
     padding-right: 16rem;
+  }
+
+  .is-style-group-section:last-child{
+    min-width: 100vw;
   }
 }
 
@@ -1956,6 +1992,10 @@ a {
 
   .lg\:hidden{
     display: none;
+  }
+
+  .lg\:h-\[40vh\]{
+    height: 40vh;
   }
 
   .lg\:w-fit{

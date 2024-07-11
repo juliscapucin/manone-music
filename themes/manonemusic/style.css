@@ -234,7 +234,7 @@ a {
 /* HOME SECTIONS */
 /* panel */
 .is-style-group-section {
-	@apply relative h-fit lg:h-[--container-height-desktop] pt-[--header-height] min-w-screen w-screen lg:w-fit xl:min-w-[120vw] px-4 md:px-16 lg:pr-40 xl:pr-64 lg:last:pr-0 pb-16 overflow-x-clip;
+	@apply relative h-fit lg:h-[--container-height-desktop] pt-[--header-height] min-w-screen w-screen lg:w-fit xl:min-w-[120vw] xl:last:min-w-screen px-4 md:px-16 xl:pr-64 lg:last:pr-0 pb-16 overflow-x-clip;
 }
 
 /* inner panel */
