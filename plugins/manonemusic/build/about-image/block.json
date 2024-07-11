@@ -18,18 +18,21 @@
   "attributes": {
     "imgId": {
       "type": "number",
-      "default": 15
+      "default": 75
     },
     "imgUrl": {
-      "type": "string"
+      "type": "string",
+      "default": "https://manonemusic.juliscapucin.com/manonemusic-about/"
     },
     "imgAlt": {
       "type": "string"
+    },
+    "screenSize": {
+      "type": "string",
+      "default": "desktop"
     }
   },
   "textdomain": "about-image",
   "editorScript": "file:./index.js",
-  "editorStyle": "file:./style.css",
-  "render": "file:./render.php",
-  "viewScript": "file:./view.js"
+  "render": "file:./render.php"
 }

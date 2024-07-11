@@ -1,8 +1,7 @@
-import { useEffect, useState } from "@wordpress/element";
-import apiFetch from "@wordpress/api-fetch";
+// import { useEffect, useState } from "@wordpress/element";
+// import apiFetch from "@wordpress/api-fetch";
 import {
 	useBlockProps,
-	useInnerBlocksProps,
 	InspectorControls,
 	MediaUpload,
 	MediaUploadCheck,
@@ -14,41 +13,31 @@ import {
 	SelectControl,
 } from "@wordpress/components";
 
-/**
- * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
- * All files containing `style` keyword are bundled together. The code used
- * gets applied both to the front of your site and to the editor.
- *
- * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
- */
-import "./style.css";
-
 export default function Edit({ attributes, setAttributes }) {
 	const blockProps = useBlockProps({
-		className: "absolute top-0 w-64",
+		className: "absolute top-0 right-0 w-64 h-fit bg-faded-30",
 	});
 	const { imgId, imgUrl, imgAlt } = attributes;
-	const [url, setUrl] = useState(imgUrl);
 
 	function onFileSelect(media) {
-		setAttributes({ imgId: media.id });
+		setAttributes({ imgId: media.id, imgUrl: media.url, imgAlt: media.alt });
 	}
 
-	useEffect(() => {
-		async function fetchImage() {
-			const response = await apiFetch({
-				path: `/wp/v2/media/${imgId}`,
-				method: "GET",
-			});
-			setAttributes({
-				imgURL: response.media_details.sizes.full.source_url,
-				imgAlt: response.alt_text,
-			});
-			setUrl(response.media_details.sizes.full.source_url);
-			console.log(imgId, imgAlt);
-		}
-		fetchImage();
-	}, [imgId]);
+	// Fetch from api (not working)
+	// useEffect(() => {
+	// 	async function fetchImage() {
+	// 		const response = await apiFetch({
+	// 			path: `/wp/v2/media/${imgId}`,
+	// 			method: "GET",
+	// 		});
+	// 		setAttributes({
+	// 			imgURL: response.media_details.sizes.full.source_url,
+	// 			imgAlt: response.alt_text,
+	// 		});
+	// 		setUrl(response.media_details.sizes.full.source_url);
+	// 	}
+	// 	fetchImage();
+	// }, [imgId]);
 
 	return (
 		<>
@@ -60,8 +49,11 @@ export default function Edit({ attributes, setAttributes }) {
 								onSelect={onFileSelect}
 								value={imgId}
 								render={({ open }) => (
-									<Button className="bg-primary text-secondary" onClick={open}>
-										Select Image
+									<Button
+										className="components-button editor-post-publish-button editor-post-publish-button__button is-primary is-compact"
+										onClick={open}
+									>
+										Replace About Image
 									</Button>
 								)}
 							/>
@@ -69,9 +61,32 @@ export default function Edit({ attributes, setAttributes }) {
 					</PanelRow>
 				</PanelBody>
 			</InspectorControls>
+
 			<div {...blockProps}>
-				<div className="relative w-64 h-64 overflow-clip mb-16">
-					<img src={url} className="w-full h-full object-cover" alt={imgAlt} />
+				<div className="relative w-full h-full bg-faded-10">
+					<div className="contain-image hidden lg:flex justify-end w-full overflow-clip z-10">
+						<img
+							src={imgUrl}
+							className="w-full h-full object-cover"
+							alt={imgAlt}
+						/>
+					</div>
+					<div className="absolute top-10 w-full h-full flex items-end justify-center">
+						<MediaUploadCheck>
+							<MediaUpload
+								onSelect={onFileSelect}
+								value={imgId}
+								render={({ open }) => (
+									<Button
+										className="components-button editor-post-publish-button editor-post-publish-button__button is-primary is-compact"
+										onClick={open}
+									>
+										Replace Image
+									</Button>
+								)}
+							/>
+						</MediaUploadCheck>
+					</div>
 				</div>
 			</div>
 		</>

@@ -78,7 +78,7 @@ export default function Edit({ attributes, setAttributes }) {
 					}}
 				>
 					Add Link
-				</Button>{" "}
+				</Button>
 			</div>
 		</div>
 	);
